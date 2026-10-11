@@ -6,6 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#087e8b">
 <title>SwimSteps | Learn, Practise, Progress</title>
+
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SwimSteps">
+<meta name="theme-color" content="#087e8b">
+
 <style>
 :root {
   --blue: #087e8b;
@@ -434,5 +442,16 @@ renderLessons();
 renderShop();
 renderProgress();
 </script>
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(function (error) {
+        console.log("Offline setup unavailable:", error);
+      });
+  });
+}
+</script>
+
 </body>
 </html>
