@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087e8b">
+<title>SwimSteps | Learn, Practise, Progress</title>
+<style>
+:root {
+  --blue: #087e8b;
+  --dark: #123746;
+  --pale: #e9f8f8;
+  --bg: #f5f9fb;
+  --muted: #617681;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+}
+header {
+  background: linear-gradient(135deg, #087e8b, #13a9b0);
+  color: white;
+  padding: 28px 20px 25px;
+}
+.header-inner, main, nav {
+  max-width: 850px;
+  margin: auto;
+}
+.logo { font-size: 25px; font-weight: 800; }
+header p { margin-bottom: 0; line-height: 1.5; }
+nav {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: white;
+  border-bottom: 1px solid #dce8eb;
+}
+nav button {
+  flex: 1;
+  padding: 15px 4px;
+  border: 0;
+  background: white;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+nav button.active {
+  color: var(--blue);
+  border-bottom: 3px solid var(--blue);
+}
+main { padding: 20px 16px 45px; }
+h1 { font-size: 27px; margin: 8px 0; }
+h2 { font-size: 19px; margin-top: 25px; }
+p { line-height: 1.6; }
+.muted { color: var(--muted); font-size: 14px; }
+.hero {
+  background: var(--pale);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+.hero-icon { font-size: 40px; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+.stat, .card {
+  background: white;
+  border: 1px solid #e2ebee;
+  border-radius: 15px;
+  padding: 17px;
+}
+.stat strong { display: block; font-size: 24px; margin-bottom: 5px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.card { min-width: 0; }
+.emoji { font-size: 34px; }
+.card h3 { font-size: 16px; margin: 10px 0 6px; }
+.card p { font-size: 13px; color: var(--muted); }
+.price { font-weight: 800; font-size: 18px; margin: 12px 0; }
+button.action {
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button.action:disabled { opacity: .5; }
+button.secondary {
+  background: var(--pale);
+  color: var(--blue);
+}
+button.remove {
+  background: #fff0ee;
+  color: #a32d24;
+}
+button:focus-visible {
+  outline: 3px solid #f0b429;
+  outline-offset: 2px;
+}
+.full { width: 100%; }
+.lesson-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.lesson-row .emoji { font-size: 28px; }
+.lesson-row .action { margin-top: 10px; }
+.progress-track {
+  height: 10px;
+  border-radius: 20px;
+  background: #e1ebee;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.progress-fill {
+  height: 100%;
+  background: #16a085;
+  transition: width .2s;
+}
+.cart-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2ebee;
+}
+.cart-row button { padding: 6px 10px; }
+.notice {
+  background: #fff6dc;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 13px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+[hidden] { display: none !important; }
+@media (max-width: 420px) {
+  .grid { grid-template-columns: 1fr; }
+  .card.product-card {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 0 12px;
+  }
+  .product-card .emoji { grid-row: span 4; }
+  .product-card h3 { margin-top: 0; }
+  .product-card .price { margin: 4px 0 10px; }
+  .product-card button { justify-self: start; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">🌊 SwimSteps</div>
+    <p>Learn to swim. Build confidence. Celebrate progress.</p>
+  </div>
+</header>
+
+<nav aria-label="Main navigation">
+  <button class="active" data-tab="learn">🏊 Learn</button>
+  <button data-tab="shop">🛍️ Shop <span id="nav-count"></span></button>
+  <button data-tab="progress">📈 Progress</button>
+</nav>
+
+<main>
+  <section id="learn">
+    <div class="hero">
+      <div class="hero-icon">🏊‍♂️</div>
+      <h1>Your swimming journey starts here</h1>
+      <p>Learn step by step, practise with proper supervision, and celebrate every milestone.</p>
+      <button class="action" onclick="showTab('progress')">View my progress →</button>
+    </div>
+    <h2>Beginner lessons</h2>
+    <p class="muted">Open each lesson and mark it complete when you have practised it safely.</p>
+    <div id="lesson-list" class="grid"></div>
+  </section>
+
+  <section id="shop" hidden>
+    <h1>Swimming accessories</h1>
+    <p class="muted">Explore useful equipment for your swimming lessons.</p>
+    <div id="product-list" class="grid"></div>
+    <h2>Your shopping cart</h2>
+    <div class="card">
+      <div id="cart-list"></div>
+      <div class="cart-row">
+        <strong>Subtotal</strong>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+      <p class="muted">Demo prices in USD. Shipping and taxes are not included.</p>
+      <button class="action full" onclick="checkout()">Continue</button>
+      <p id="checkout-message" class="muted" aria-live="polite"></p>
+      <button class="action secondary full" onclick="clearCart()">Clear cart</button>
+    </div>
+  </section>
+
+  <section id="progress" hidden>
+    <div class="hero">
+      <div class="hero-icon">🏆</div>
+      <h1>My swimming progress</h1>
+      <p>Every small step brings you closer to your goal.</p>
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+      </div>
+      <strong id="progress-label">0% completed</strong>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <strong id="completed-count">0</strong>
+        <span class="muted">Lessons completed</span>
+      </div>
+      <div class="stat">
+        <strong id="remaining-count">4</strong>
+        <span class="muted">Lessons remaining</span>
+      </div>
+    </div>
+    <h2>My checklist</h2>
+    <div id="progress-list"></div>
+    <h2>My next step</h2>
+    <div class="card">
+      <p>Practise regularly with a qualified swimming instructor. Never swim alone. Children and beginners need appropriate direct supervision.</p>
+    </div>
+  </section>
+</main>
+
+<footer>SwimSteps · Learn safely, one step at a time.</footer>
+
+<script>
+const lessons = [
+  {
+    id: 1,
+    emoji: "💧",
+    title: "Water Confidence",
+    detail: "Get comfortable around the pool and learn basic pool safety."
+  },
+  {
+    id: 2,
+    emoji: "🌬️",
+    title: "Breathing Basics",
+    detail: "Learn relaxed breathing exercises with your instructor."
+  },
+  {
+    id: 3,
+    emoji: "🦵",
+    title: "Floating and Kicking",
+    detail: "Practise supported floating and gentle kicking under supervision."
+  },
+  {
+    id: 4,
+    emoji: "🏊",
+    title: "First Swimming Strokes",
+    detail: "Start coordinating arm and leg movements with your instructor."
+  }
+];
+
+const products = [
+  { id: 1, emoji: "🥽", name: "Swimming Goggles", detail: "Comfortable eye protection.", price: 15 },
+  { id: 2, emoji: "🧢", name: "Swim Cap", detail: "A cap for pool practice.", price: 10 },
+  { id: 3, emoji: "🏄", name: "Kickboard", detail: "A training aid for coached lessons.", price: 18 },
+  { id: 4, emoji: "🟦", name: "Pull Buoy", detail: "An aid for supervised drills.", price: 12 },
+  { id: 5, emoji: "🎒", name: "Swim Bag", detail: "Carry your swimming equipment.", price: 22 }
+];
+
+function loadSaved(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+let completed = loadSaved("swimsteps-completed", []);
+let cart = loadSaved("swimsteps-cart", {});
+
+function saveState() {
+  try {
+    localStorage.setItem("swimsteps-completed", JSON.stringify(completed));
+    localStorage.setItem("swimsteps-cart", JSON.stringify(cart));
+  } catch (error) {
+    console.warn("Progress could not be saved in this browser.");
+  }
+}
+
+function showTab(tab) {
+  document.querySelectorAll("main > section").forEach(section => {
+    section.hidden = section.id !== tab;
+  });
+
+  document.querySelectorAll("nav button").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === tab);
+  });
+
+  if (tab === "progress") renderProgress();
+  if (tab === "shop") renderShop();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.querySelectorAll("nav button").forEach(button => {
+  button.addEventListener("click", () => showTab(button.dataset.tab));
+});
+
+function renderLessons() {
+  document.getElementById("lesson-list").innerHTML = lessons.map(lesson => {
+    const done = completed.includes(lesson.id);
+    return `
+      <article class="card">
+        <div class="lesson-row">
+          <div class="emoji">${lesson.emoji}</div>
+          <div>
+            <h3>${lesson.title}</h3>
+            <p>${lesson.detail}</p>
+            <button class="action ${done ? "secondary" : ""}"
+              onclick="toggleLesson(${lesson.id})">
+              ${done ? "✓ Completed · Undo" : "Mark complete"}
+            </button>
+          </div>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+function toggleLesson(id) {
+  completed = completed.includes(id)
+    ? completed.filter(item => item !== id)
+    : [...completed, id];
+  saveState();
+  renderLessons();
+  renderProgress();
+}
+
+function renderProgress() {
+  const count = completed.length;
+  const percentage = Math.round(count / lessons.length * 100);
+  document.getElementById("progress-fill").style.width = percentage + "%";
+  document.getElementById("progress-label").textContent = percentage + "% completed";
+  document.getElementById("completed-count").textContent = count;
+  document.getElementById("remaining-count").textContent = lessons.length - count;
+
+  document.getElementById("progress-list").innerHTML = lessons.map(lesson => `
+    <div class="cart-row">
+      <span>${completed.includes(lesson.id) ? "✅" : "⚪"} ${lesson.title}</span>
+      <span class="muted">${completed.includes(lesson.id) ? "Done" : "Not yet"}</span>
+    </div>`).join("");
+}
+
+function renderShop() {
+  document.getElementById("product-list").innerHTML = products.map(product => `
+    <article class="card product-card">
+      <div class="emoji">${product.emoji}</div>
+      <h3>${product.name}</h3>
+      <p>${product.detail}</p>
+      <div class="price">$${product.price.toFixed(2)}</div>
+      <button class="action" onclick="addToCart(${product.id})">＋ Add to cart</button>
+    </article>`).join("");
+
+  const items = products.filter(product => (cart[product.id] || 0) > 0);
+
+  document.getElementById("cart-list").innerHTML = items.length
+    ? items.map(product => `
+      <div class="cart-row">
+        <div>
+          <strong>${product.name}</strong><br>
+          <span class="muted">$${product.price.toFixed(2)} × ${cart[product.id]}</span>
+        </div>
+        <div>
+          <button class="action secondary" aria-label="Remove one ${product.name}"
+            onclick="removeFromCart(${product.id})">−</button>
+          <button class="action secondary" aria-label="Add one ${product.name}"
+            onclick="addToCart(${product.id})">＋</button>
+        </div>
+      </div>`).join("")
+    : '<p class="muted">Your cart is empty. Add something you need!</p>';
+
+  const total = products.reduce((sum, product) =>
+    sum + product.price * (cart[product.id] || 0), 0);
+
+  const count = products.reduce((sum, product) =>
+    sum + (cart[product.id] || 0), 0);
+
+  document.getElementById("cart-total").textContent = "$" + total.toFixed(2);
+  document.getElementById("nav-count").textContent = count ? "(" + count + ")" : "";
+}
+
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  saveState();
+  document.getElementById("checkout-message").textContent = "";
+  renderShop();
+}
+
+function removeFromCart(id) {
+  cart[id] = (cart[id] || 0) - 1;
+  if (cart[id] <= 0) delete cart[id];
+  saveState();
+  renderShop();
+}
+
+function clearCart() {
+  cart = {};
+  saveState();
+  document.getElementById("checkout-message").textContent = "";
+  renderShop();
+}
+
+function checkout() {
+  const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+  document.getElementById("checkout-message").textContent = count
+    ? "Demo only: your cart is ready, but no order or payment has been made."
+    : "Your cart is empty. Add a product first.";
+}
+
+renderLessons();
+renderShop();
+renderProgress();
+</script>
+</body>
+</html>
