@@ -7,9 +7,8 @@
   <meta name="theme-color" content="#087e8b">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="SwimSteps">
-  <meta name="description" content="Learn to swim, track your progress and explore swimming accessories.">
-
-  <title>SwimSteps</title>
+  <meta name="description" content="Child-friendly swimming lessons, progress tracking and swimming accessories.">
+  <title>SwimSteps | Learn to Swim</title>
 
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
@@ -18,20 +17,18 @@
   <style>
     :root {
       --ocean: #087e8b;
-      --ocean-dark: #075965;
+      --dark: #075965;
       --aqua: #63e6e2;
       --ink: #183b46;
       --muted: #657b84;
       --page: #f3f8fa;
-      --white: #ffffff;
+      --white: #fff;
       --line: #dce8ec;
       --green: #16794b;
-      --shadow: 0 5px 20px rgba(20, 67, 80, 0.07);
+      --shadow: 0 5px 20px rgba(20, 67, 80, .07);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -39,107 +36,67 @@
         Roboto, Helvetica, Arial, sans-serif;
       background: var(--page);
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    button:focus-visible {
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible {
       outline: 3px solid #f3b63f;
       outline-offset: 3px;
     }
 
     .app-header {
-      background: linear-gradient(135deg, var(--ocean), var(--ocean-dark));
+      background: linear-gradient(135deg, var(--ocean), var(--dark));
       color: white;
-      padding: 24px 20px 30px;
+      padding: 24px 18px 30px;
     }
 
-    .header-inner,
-    main {
+    .header-inner, main {
       width: 100%;
       max-width: 850px;
       margin: 0 auto;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .brand { display: flex; align-items: center; gap: 12px; }
     .brand-icon {
       display: grid;
       place-items: center;
       width: 48px;
       height: 48px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
       border-radius: 15px;
+      background: rgba(255,255,255,.15);
       font-size: 27px;
     }
 
-    .brand h1 {
-      margin: 0;
-      font-size: 25px;
-      letter-spacing: -0.5px;
-    }
+    .brand h1 { margin: 0; font-size: 25px; }
+    .brand p { margin: 2px 0 0; font-size: 13px; color: #d7f7f6; }
 
-    .brand p {
-      margin: 2px 0 0;
-      font-size: 13px;
-      color: #d7f7f6;
-    }
-
-    .hero {
-      margin-top: 27px;
-    }
-
+    .hero { margin-top: 27px; }
     .hero h2 {
       font-size: clamp(27px, 6vw, 37px);
       line-height: 1.15;
       margin: 0 0 10px;
-      letter-spacing: -0.8px;
+      letter-spacing: -.8px;
     }
-
-    .hero p {
-      color: #e1f6f7;
-      margin: 0;
-      max-width: 520px;
-    }
+    .hero p { margin: 0; color: #e1f6f7; }
 
     .quick-stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
+      gap: 9px;
       margin-top: 22px;
     }
 
     .stat {
-      padding: 13px 10px;
+      padding: 12px 9px;
       border-radius: 14px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,.12);
     }
+    .stat-number { display: block; font-size: 22px; font-weight: 750; }
+    .stat-label { display: block; font-size: 11px; color: #e1f6f7; }
 
-    .stat-number {
-      display: block;
-      font-size: 22px;
-      font-weight: 750;
-    }
-
-    .stat-label {
-      display: block;
-      font-size: 11px;
-      color: #e1f6f7;
-    }
-
-    main {
-      padding: 20px 16px 110px;
-    }
+    main { padding: 20px 14px 90px; }
 
     .tabs {
       display: grid;
@@ -158,35 +115,15 @@
       border-radius: 11px;
       background: transparent;
       color: var(--muted);
-      padding: 12px 5px;
+      padding: 12px 4px;
       font-size: 14px;
       font-weight: 700;
     }
+    .tab.active { background: var(--ocean); color: white; }
 
-    .tab.active {
-      background: var(--ocean);
-      color: white;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 25px 0 14px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 23px;
-      letter-spacing: -0.4px;
-    }
-
-    .section-heading p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+    .section-heading { margin: 24px 0 15px; }
+    .section-heading h2 { margin: 0; font-size: 24px; letter-spacing: -.4px; }
+    .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 
     .small-label {
       color: var(--ocean);
@@ -200,18 +137,12 @@
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 18px;
+      padding: 17px;
       margin-bottom: 13px;
       box-shadow: var(--shadow);
     }
 
-    .lesson-top,
-    .product-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 13px;
-    }
-
+    .lesson-top, .product-top { display: flex; align-items: flex-start; gap: 13px; }
     .emoji {
       display: grid;
       place-items: center;
@@ -222,107 +153,103 @@
       background: #e9f8f8;
       font-size: 28px;
     }
-
-    .lesson-info,
-    .product-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .lesson-info h3,
-    .product-info h3 {
-      margin: 0 0 4px;
-      font-size: 17px;
-    }
-
-    .lesson-info p,
-    .product-info p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .lesson-info, .product-info { flex: 1; min-width: 0; }
+    .lesson-info h3, .product-info h3 { margin: 0 0 4px; font-size: 17px; }
+    .lesson-info p, .product-info p { margin: 0; color: var(--muted); font-size: 13px; }
 
     .pill {
       display: inline-block;
-      margin-top: 8px;
+      margin: 8px 5px 0 0;
       padding: 4px 9px;
-      background: #eef5f7;
       border-radius: 30px;
+      background: #eef5f7;
       color: #42616b;
       font-size: 11px;
       font-weight: 700;
     }
+    .pill.done { background: #e2f5e9; color: var(--green); }
 
-    .pill.done {
-      background: #e2f5e9;
-      color: var(--green);
-    }
-
-    .lesson-detail {
-      margin-top: 15px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-    }
-
-    .lesson-detail p {
-      font-size: 14px;
-      color: #49636c;
-      margin: 0 0 10px;
-    }
-
-    .lesson-detail ul {
-      padding-left: 20px;
-      margin: 8px 0 15px;
-      font-size: 14px;
-    }
-
-    .lesson-detail li {
-      margin: 6px 0;
-    }
-
-    .primary-btn,
-    .secondary-btn,
-    .danger-btn {
+    .primary-btn, .secondary-btn, .danger-btn {
       border-radius: 11px;
-      padding: 11px 15px;
+      padding: 11px 14px;
       font-weight: 750;
       font-size: 14px;
       border: 1px solid transparent;
     }
+    .primary-btn { background: var(--ocean); color: white; }
+    .primary-btn:hover { background: var(--dark); }
+    .secondary-btn { background: white; border-color: var(--line); color: var(--ink); }
+    .danger-btn { background: #fff1f0; color: #a62e26; border-color: #f6d1ce; }
+    .full-btn { width: 100%; margin-top: 13px; }
 
-    .primary-btn {
-      background: var(--ocean);
-      color: white;
+    .lesson-detail {
+      margin-top: 16px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
     }
 
-    .primary-btn:hover {
-      background: var(--ocean-dark);
+    .lesson-detail h4 { margin: 17px 0 7px; font-size: 15px; }
+    .lesson-detail p { margin: 7px 0; font-size: 14px; }
+    .lesson-detail ul, .lesson-detail ol {
+      padding-left: 22px;
+      margin: 8px 0 15px;
+      font-size: 14px;
+    }
+    .lesson-detail li { margin: 7px 0; }
+
+    .learning-goal {
+      background: #edf9f8;
+      border: 1px solid #ccebe8;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      margin: 13px 0;
     }
 
-    .secondary-btn {
-      background: white;
-      border-color: var(--line);
-      color: var(--ink);
+    .safety-note {
+      background: #fff8e7;
+      border: 1px solid #f2dfae;
+      color: #775718;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      margin: 13px 0;
     }
 
-    .danger-btn {
-      background: #fff1f0;
-      color: #a62e26;
-      border-color: #f6d1ce;
+    .activity-list { list-style: none; padding: 0 !important; }
+    .activity-list li { margin: 0 0 9px; }
+    .activity-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fbfdfe;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .activity-label input {
+      width: 19px;
+      height: 19px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--ocean);
     }
 
-    .full-btn {
-      width: 100%;
-      margin-top: 13px;
+    .activity-status { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+    .notice {
+      padding: 12px 14px;
+      background: #fff8e7;
+      border: 1px solid #f2dfae;
+      color: #775718;
+      border-radius: 12px;
+      font-size: 13px;
+      margin: 14px 0;
     }
 
-    .product-price {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--ocean-dark);
-      margin-top: 8px;
-    }
-
+    .product-price { font-size: 18px; font-weight: 800; color: var(--dark); margin-top: 8px; }
     .product-actions {
       display: flex;
       align-items: center;
@@ -336,13 +263,9 @@
       border: 1px solid #c8ecec;
       border-radius: 16px;
       padding: 17px;
-      margin: 0 0 17px;
+      margin-bottom: 17px;
     }
-
-    .cart-summary h3 {
-      margin: 0 0 7px;
-    }
-
+    .cart-summary h3 { margin: 0 0 7px; }
     .cart-row {
       display: flex;
       justify-content: space-between;
@@ -351,18 +274,8 @@
       border-bottom: 1px solid #cce6e8;
       font-size: 14px;
     }
-
-    .cart-row:last-of-type {
-      border-bottom: 0;
-    }
-
-    .quantity-controls {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 7px;
-    }
-
+    .cart-row:last-of-type { border-bottom: 0; }
+    .quantity-controls { display: inline-flex; align-items: center; gap: 9px; margin-top: 7px; }
     .quantity-controls button {
       width: 30px;
       height: 30px;
@@ -372,7 +285,6 @@
       color: var(--ink);
       font-weight: 800;
     }
-
     .total-row {
       display: flex;
       justify-content: space-between;
@@ -384,16 +296,6 @@
       font-weight: 800;
     }
 
-    .notice {
-      padding: 12px 14px;
-      background: #fff8e7;
-      border: 1px solid #f2dfae;
-      color: #775718;
-      border-radius: 12px;
-      font-size: 13px;
-      margin: 14px 0;
-    }
-
     .progress-card {
       background: linear-gradient(135deg, #e5f8f8, #f4fbfc);
       border: 1px solid #cdeaea;
@@ -401,105 +303,34 @@
       padding: 20px;
       margin-bottom: 17px;
     }
+    .progress-numbers { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .progress-numbers strong { font-size: 29px; }
+    .progress-track { height: 12px; background: #d0e7e9; border-radius: 20px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 0; background: var(--ocean); border-radius: 20px; transition: width .25s ease; }
+    .progress-note { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+    .empty-state { text-align: center; padding: 22px 10px; color: var(--muted); }
+    .empty-state .emoji { margin: 0 auto 12px; }
+    .footer { text-align: center; padding: 25px 10px; color: var(--muted); font-size: 12px; }
 
-    .progress-numbers {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .progress-numbers strong {
-      font-size: 29px;
-    }
-
-    .progress-track {
-      height: 12px;
-      background: #d0e7e9;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0;
-      background: var(--ocean);
-      border-radius: 20px;
-      transition: width 0.25s ease;
-    }
-
-    .progress-note {
-      color: var(--muted);
-      font-size: 13px;
-      margin: 12px 0 0;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 25px 12px;
-      color: var(--muted);
-    }
-
-    .empty-state .emoji {
-      margin: 0 auto 12px;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 25px 10px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .bottom-nav {
-      display: none;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
+    [hidden] { display: none !important; }
 
     @media (min-width: 650px) {
-      main {
-        padding-top: 25px;
-      }
-
-      .lesson-grid,
-      .product-grid {
+      main { padding-top: 25px; }
+      .lesson-grid, .product-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 13px;
         align-items: start;
       }
-
-      .lesson-grid .card,
-      .product-grid .card {
-        margin-bottom: 0;
-      }
-
-      .cart-summary {
-        margin-top: 20px;
-      }
+      .lesson-grid .card, .product-grid .card { margin-bottom: 0; }
     }
 
     @media (max-width: 420px) {
-      .app-header {
-        padding: 20px 16px 24px;
-      }
-
-      main {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
-
-      .card {
-        padding: 15px;
-      }
-
-      .tab {
-        font-size: 12px;
-      }
+      .app-header { padding: 20px 15px 24px; }
+      main { padding-left: 11px; padding-right: 11px; }
+      .card { padding: 14px; }
+      .tab { font-size: 12px; }
+      .product-actions { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
@@ -511,13 +342,13 @@
         <div class="brand-icon" aria-hidden="true">🌊</div>
         <div>
           <h1>SwimSteps</h1>
-          <p>Your swimming journey, one step at a time</p>
+          <p>Little steps. Growing confidence.</p>
         </div>
       </div>
 
       <div class="hero">
-        <h2>Feel confident<br>in the water.</h2>
-        <p>Learn swimming basics, celebrate your progress and discover useful swimming accessories.</p>
+        <h2>Learn to swim,<br>one step at a time.</h2>
+        <p>Friendly lessons, little goals and progress to celebrate.</p>
       </div>
 
       <div class="quick-stats">
@@ -527,7 +358,7 @@
         </div>
         <div class="stat">
           <span class="stat-number" id="headerProgress">0%</span>
-          <span class="stat-label">Your progress</span>
+          <span class="stat-label">Progress</span>
         </div>
         <div class="stat">
           <span class="stat-number" id="headerCart">0</span>
@@ -541,73 +372,69 @@
     <nav class="tabs" aria-label="Main navigation">
       <button class="tab active" data-page="learn" aria-current="page">🏊 Learn</button>
       <button class="tab" data-page="shop">🛍️ Shop <span id="cartTabCount"></span></button>
-      <button class="tab" data-page="progress">📈 Progress</button>
+      <button class="tab" data-page="progress">⭐ Progress</button>
     </nav>
 
-    <!-- LEARN -->
     <section id="learnPage">
       <div class="section-heading">
-        <div>
-          <span class="small-label">Start learning</span>
-          <h2>Swimming lessons</h2>
-          <p>Build your confidence step by step.</p>
-        </div>
+        <span class="small-label">Your learning journey</span>
+        <h2>Swimming lessons</h2>
+        <p>Choose a lesson, explore the activities and celebrate each step.</p>
       </div>
 
       <div class="notice">
-        Safety first: practise with a qualified instructor or responsible adult.
-        Never swim alone. Children must be supervised closely in and around water.
+        <strong>Safety first!</strong> A responsible adult must supervise children
+        closely around water. Practise in a suitable pool with a qualified
+        swimming instructor. Never swim alone.
       </div>
 
       <div class="lesson-grid" id="lessonList"></div>
     </section>
 
-    <!-- SHOP -->
     <section id="shopPage" hidden>
       <div class="section-heading">
-        <div>
-          <span class="small-label">Get ready to swim</span>
-          <h2>Swimming accessories</h2>
-          <p>Explore a few useful swimming essentials.</p>
-        </div>
+        <span class="small-label">Swimming essentials</span>
+        <h2>Accessories shop</h2>
+        <p>Explore useful items for your swimming bag.</p>
       </div>
 
       <div class="notice">
-        Sample catalogue only. Prices are illustrative in USD.
-        This demo does not process payments or place real orders.
+        This is a sample shop with illustrative USD prices. It does not accept
+        payments or place real orders.
       </div>
 
       <div class="cart-summary" id="cartSummary"></div>
       <div class="product-grid" id="productList"></div>
     </section>
 
-    <!-- PROGRESS -->
     <section id="progressPage" hidden>
       <div class="section-heading">
-        <div>
-          <span class="small-label">Keep going</span>
-          <h2>Your progress</h2>
-          <p>Every small step counts.</p>
-        </div>
+        <span class="small-label">Look how far you've come</span>
+        <h2>My swimming progress</h2>
+        <p>Every activity is a chance to learn something new.</p>
       </div>
 
       <div class="progress-card">
         <div class="progress-numbers">
           <div>
-            <span class="small-label">Overall progress</span>
+            <span class="small-label">Lessons completed</span>
             <div><strong id="progressPercent">0%</strong></div>
           </div>
           <div id="progressCount">0 of 4 lessons</div>
         </div>
-        <div class="progress-track" role="progressbar"
-             aria-label="Lesson completion"
-             aria-valuemin="0" aria-valuemax="100"
-             aria-valuenow="0" id="progressBar">
+
+        <div class="progress-track" id="progressBar"
+             role="progressbar" aria-label="Lesson completion"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="progress-fill" id="progressFill"></div>
         </div>
-        <p class="progress-note" id="progressMessage">
-          Your swimming journey starts here.
-        </p>
+        <p class="progress-note" id="progressMessage">Your journey starts here!</p>
+      </div>
+
+      <div class="card">
+        <h3>🏅 Your achievements</h3>
+        <p id="achievementText">Complete your first lesson to earn your first badge.</p>
+        <div id="achievementBadges"></div>
       </div>
 
       <h3>Lesson checklist</h3>
@@ -618,8 +445,8 @@
       </button>
 
       <p class="progress-note">
-        Your progress is saved in this browser on this device.
-        It is not synchronised to other devices.
+        Progress is saved in this browser on this device. It is not
+        synchronised across devices.
       </p>
     </section>
 
@@ -634,99 +461,123 @@
     const LESSONS = [
       {
         id: "confidence",
+        number: 1,
         title: "Water Confidence",
         emoji: "💧",
-        level: "Beginner",
-        duration: "10 minutes",
-        description: "Get comfortable around water before learning to swim.",
+        level: "First steps",
+        duration: "About 10 minutes",
+        description: "Feel more comfortable and relaxed near the pool.",
+        goal: "I can follow pool safety rules and feel comfortable in the water with my instructor.",
+        equipment: "Swimsuit, towel and a suitable pool.",
+        activities: [
+          "Find the pool entrance, steps and safe exit with your instructor.",
+          "Practise entering and leaving the pool only when your instructor says it is safe.",
+          "Walk slowly in an instructor-approved shallow area while holding a safe support if needed.",
+          "Practise stopping and listening when the instructor gives a safety instruction."
+        ],
         steps: [
-          "Start in shallow water with an instructor or responsible adult.",
-          "Practise walking slowly and holding the pool edge.",
-          "Learn how to enter and leave the pool safely."
-        ]
+          "Ask your instructor where you are allowed to stand.",
+          "Move slowly. Pool floors can be slippery.",
+          "Stay close to your instructor or supervising adult.",
+          "Take a break whenever you feel cold, worried or tired."
+        ],
+        parentTip: "Praise careful listening and asking for help, not just getting into the water.",
+        safety: "Never push a child into water or force a child to put their face in water."
       },
       {
         id: "breathing",
-        title: "Breathing Basics",
+        number: 2,
+        title: "Calm Breathing",
         emoji: "🌬️",
         level: "Beginner",
-        duration: "10 minutes",
-        description: "Practise calm breathing and gentle bubbles in the water.",
+        duration: "About 10 minutes",
+        description: "Learn to breathe calmly and feel relaxed near the water.",
+        goal: "I can practise relaxed breathing with my instructor and know when to stop for air.",
+        equipment: "Swimsuit and a suitable pool.",
+        activities: [
+          "Practise slow, comfortable breathing while standing safely beside the pool.",
+          "With instructor guidance, practise gentle bubbles at the water surface if ready.",
+          "Return to normal breathing whenever you need to.",
+          "Tell your instructor if you feel uncomfortable or want a rest."
+        ],
         steps: [
-          "Practise slow breathing while standing securely in shallow water.",
-          "With an instructor, practise gentle bubbles at the water surface.",
-          "Stand up and rest whenever you need to."
-        ]
+          "Start on dry land or in a safe, shallow position chosen by your instructor.",
+          "Breathe normally and gently. Never compete to hold your breath.",
+          "Only try water activities when your instructor says you are ready.",
+          "Stop immediately if you cough, feel dizzy or feel uncomfortable."
+        ],
+        parentTip: "Keep practice relaxed and playful. There is no need to rush.",
+        safety: "Never practise prolonged breath-holding, underwater challenges or forced submersion."
       },
       {
         id: "floating",
+        number: 3,
         title: "Floating and Kicking",
         emoji: "🦵",
         level: "Beginner",
-        duration: "15 minutes",
-        description: "Learn basic body position and gentle kicking with support.",
+        duration: "About 15 minutes",
+        description: "Discover body position and gentle leg movements with support.",
+        goal: "I can try an instructor-guided floating or kicking activity at my current level.",
+        equipment: "A kickboard or other teaching aid only if recommended by the instructor.",
+        activities: [
+          "Watch your instructor demonstrate a safe body position.",
+          "Practise a supported body-position exercise only with direct instructor assistance.",
+          "Try gentle kicking while holding a pool edge or suitable teaching aid, if instructed.",
+          "Return to a secure standing position and rest when asked."
+        ],
         steps: [
-          "Use a suitable pool area with close adult or instructor supervision.",
-          "Practise supported floating only when your instructor says it is suitable.",
-          "Practise small, relaxed kicks while holding the pool edge."
-        ]
+          "Ask your instructor to demonstrate the activity first.",
+          "Use only a suitable area and teaching aid chosen by the instructor.",
+          "Keep movements gentle and relaxed.",
+          "Practise one small skill at a time instead of rushing."
+        ],
+        parentTip: "Celebrate trying and listening. Every child develops water skills at a different pace.",
+        safety: "A kickboard or flotation aid does not prevent drowning and never replaces close supervision."
       },
       {
         id: "strokes",
+        number: 4,
         title: "First Swimming Strokes",
         emoji: "🏊",
         level: "Next step",
-        duration: "15 minutes",
-        description: "Begin learning simple arm movements and body coordination.",
+        duration: "About 15 minutes",
+        description: "Begin learning how arms, legs and breathing work together.",
+        goal: "I can follow an instructor's demonstration of a basic swimming movement.",
+        equipment: "Swimsuit and any teaching aid recommended by the instructor.",
+        activities: [
+          "Watch a qualified instructor demonstrate an appropriate basic stroke.",
+          "Practise the arm movement on dry land if your instructor recommends it.",
+          "Try a short, supervised movement in the water only when ready.",
+          "Listen to feedback and choose one small thing to practise next time."
+        ],
         steps: [
-          "Ask your instructor which stroke is appropriate for your ability.",
-          "Practise arm movements on land before trying them in the water.",
-          "Work on short, supervised practice sessions and rest regularly."
-        ]
+          "Learn one movement at a time.",
+          "Ask for a demonstration if you are unsure.",
+          "Practise only within the area and distance approved by your instructor.",
+          "Rest between attempts and stop if you become tired."
+        ],
+        parentTip: "Avoid comparing children. Confidence and water skills grow at different speeds.",
+        safety: "Do not attempt deep-water swimming or unsupervised distances. Follow your instructor's guidance."
       }
     ];
 
     const PRODUCTS = [
-      {
-        id: "goggles",
-        title: "Swimming Goggles",
-        emoji: "🥽",
-        price: 15,
-        description: "Help protect your eyes and see clearly in the pool."
-      },
-      {
-        id: "cap",
-        title: "Swim Cap",
-        emoji: "🧢",
-        price: 10,
-        description: "A simple cap for a more comfortable swim."
-      },
-      {
-        id: "kickboard",
-        title: "Kickboard",
-        emoji: "🟦",
-        price: 18,
-        description: "A training aid to use with instructor guidance."
-      },
-      {
-        id: "pullbuoy",
-        title: "Pull Buoy",
-        emoji: "🛟",
-        price: 12,
-        description: "A training aid for appropriate supervised drills."
-      },
-      {
-        id: "swimbag",
-        title: "Swim Bag",
-        emoji: "🎒",
-        price: 22,
-        description: "Keep your swimming essentials together."
-      }
+      { id: "goggles", title: "Swimming Goggles", emoji: "🥽", price: 15,
+        description: "Help protect your eyes and see clearly in the pool." },
+      { id: "cap", title: "Swim Cap", emoji: "🧢", price: 10,
+        description: "A simple cap for a comfortable swim." },
+      { id: "kickboard", title: "Kickboard", emoji: "🟦", price: 18,
+        description: "A training aid to use with instructor guidance." },
+      { id: "pullbuoy", title: "Pull Buoy", emoji: "🛟", price: 12,
+        description: "A training aid for appropriate supervised drills." },
+      { id: "swimbag", title: "Swim Bag", emoji: "🎒", price: 22,
+        description: "Keep swimming essentials together." }
     ];
 
     const STORAGE_KEYS = {
       completed: "swimsteps-completed-v2",
-      cart: "swimsteps-cart-v2"
+      cart: "swimsteps-cart-v2",
+      activities: "swimsteps-activities-v1"
     };
 
     function loadSavedValue(key, fallback) {
@@ -751,28 +602,22 @@
 
     let completedLessons = loadSavedValue(STORAGE_KEYS.completed, []);
     let cart = loadSavedValue(STORAGE_KEYS.cart, {});
+    let activities = loadSavedValue(STORAGE_KEYS.activities, {});
 
-    if (!Array.isArray(completedLessons)) {
-      completedLessons = [];
-    }
-
-    if (!cart || typeof cart !== "object" || Array.isArray(cart)) {
-      cart = {};
+    if (!Array.isArray(completedLessons)) completedLessons = [];
+    if (!cart || typeof cart !== "object" || Array.isArray(cart)) cart = {};
+    if (!activities || typeof activities !== "object" || Array.isArray(activities)) {
+      activities = {};
     }
 
     completedLessons = completedLessons.filter(function (id) {
-      return LESSONS.some(function (lesson) {
-        return lesson.id === id;
-      });
+      return LESSONS.some(function (lesson) { return lesson.id === id; });
     });
 
     Object.keys(cart).forEach(function (id) {
       const quantity = Number(cart[id]);
-      const validProduct = PRODUCTS.some(function (product) {
-        return product.id === id;
-      });
-
-      if (!validProduct || !Number.isInteger(quantity) || quantity <= 0) {
+      const valid = PRODUCTS.some(function (product) { return product.id === id; });
+      if (!valid || !Number.isInteger(quantity) || quantity <= 0) {
         delete cart[id];
       } else {
         cart[id] = Math.min(quantity, 99);
@@ -781,14 +626,10 @@
 
     function escapeHTML(value) {
       return String(value).replace(/[&<>"']/g, function (character) {
-        const entities = {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#39;"
-        };
-        return entities[character];
+        return {
+          "&": "&amp;", "<": "&lt;", ">": "&gt;",
+          '"': "&quot;", "'": "&#39;"
+        }[character];
       });
     }
 
@@ -820,42 +661,91 @@
       }, 0);
     }
 
-    function renderLessons() {
-      const container = document.getElementById("lessonList");
+    function getActivityCount(lesson) {
+      const checked = activities[lesson.id] || [];
+      return lesson.activities.filter(function (_, index) {
+        return checked.includes(index);
+      }).length;
+    }
 
-      container.innerHTML = LESSONS.map(function (lesson) {
+    function renderLessons() {
+      document.getElementById("lessonList").innerHTML = LESSONS.map(function (lesson) {
         const done = lessonIsComplete(lesson.id);
+        const count = getActivityCount(lesson);
+        const checked = activities[lesson.id] || [];
 
         return `
           <article class="card">
             <div class="lesson-top">
               <div class="emoji" aria-hidden="true">${lesson.emoji}</div>
               <div class="lesson-info">
+                <span class="small-label">Lesson ${lesson.number}</span>
                 <h3>${escapeHTML(lesson.title)}</h3>
                 <p>${escapeHTML(lesson.description)}</p>
-                <span class="pill">${escapeHTML(lesson.level)} · ${escapeHTML(lesson.duration)}</span>
+                <span class="pill">${escapeHTML(lesson.level)}</span>
+                <span class="pill">${escapeHTML(lesson.duration)}</span>
                 ${done ? '<span class="pill done">✓ Completed</span>' : ""}
               </div>
+            </div>
+
+            <div class="learning-goal">
+              <strong>🎯 My learning goal</strong><br>
+              ${escapeHTML(lesson.goal)}
             </div>
 
             <button class="secondary-btn full-btn"
                     data-action="toggle-details"
                     data-id="${lesson.id}"
                     aria-expanded="false">
-              View lesson steps
+              Explore lesson and activities
             </button>
 
             <div class="lesson-detail" id="detail-${lesson.id}" hidden>
-              <p><strong>Practice checklist</strong></p>
-              <ul>
+              <h4>🎒 What you need</h4>
+              <p>${escapeHTML(lesson.equipment)}</p>
+
+              <h4>📘 Step-by-step guide</h4>
+              <ol>
                 ${lesson.steps.map(function (step) {
-                  return `<li>${escapeHTML(step)}</li>`;
+                  return "<li>" + escapeHTML(step) + "</li>";
+                }).join("")}
+              </ol>
+
+              <h4>✅ My practice checklist</h4>
+              <p>Tick each activity after practising it with your instructor.</p>
+              <ul class="activity-list">
+                ${lesson.activities.map(function (activity, index) {
+                  const isChecked = checked.includes(index);
+                  return `
+                    <li>
+                      <label class="activity-label">
+                        <input type="checkbox"
+                               data-action="activity-check"
+                               data-lesson-id="${lesson.id}"
+                               data-activity-index="${index}"
+                               ${isChecked ? "checked" : ""}>
+                        <span>${escapeHTML(activity)}</span>
+                      </label>
+                    </li>
+                  `;
                 }).join("")}
               </ul>
+
+              <p class="activity-status">
+                ${count} of ${lesson.activities.length} activities checked
+              </p>
+
+              <h4>👨‍👩‍👧 Tip for parents</h4>
+              <p>${escapeHTML(lesson.parentTip)}</p>
+
+              <div class="safety-note">
+                <strong>Safety reminder:</strong> ${escapeHTML(lesson.safety)}
+              </div>
+
               <button class="${done ? "secondary-btn" : "primary-btn"} full-btn"
                       data-action="toggle-complete"
                       data-id="${lesson.id}">
-                ${done ? "Mark as not completed" : "✓ Mark lesson complete"}
+                ${done ? "Mark lesson as not completed" : "⭐ Mark lesson complete"}
               </button>
             </div>
           </article>
@@ -864,11 +754,8 @@
     }
 
     function renderProducts() {
-      const container = document.getElementById("productList");
-
-      container.innerHTML = PRODUCTS.map(function (product) {
+      document.getElementById("productList").innerHTML = PRODUCTS.map(function (product) {
         const quantity = cart[product.id] || 0;
-
         return `
           <article class="card">
             <div class="product-top">
@@ -879,12 +766,9 @@
                 <div class="product-price">${money(product.price)}</div>
               </div>
             </div>
-
             <div class="product-actions">
               <span class="pill">${quantity ? "In cart: " + quantity : "Swimming essential"}</span>
-              <button class="primary-btn"
-                      data-action="add-to-cart"
-                      data-id="${product.id}">
+              <button class="primary-btn" data-action="add-to-cart" data-id="${product.id}">
                 Add to cart
               </button>
             </div>
@@ -911,19 +795,16 @@
       } else {
         content += items.map(function (product) {
           const quantity = cart[product.id];
-
           return `
             <div class="cart-row">
               <div>
                 <strong>${escapeHTML(product.title)}</strong>
                 <div>${money(product.price)} each</div>
                 <div class="quantity-controls">
-                  <button data-action="decrease-quantity"
-                          data-id="${product.id}"
+                  <button data-action="decrease-quantity" data-id="${product.id}"
                           aria-label="Remove one ${escapeHTML(product.title)}">−</button>
                   <span>${quantity}</span>
-                  <button data-action="increase-quantity"
-                          data-id="${product.id}"
+                  <button data-action="increase-quantity" data-id="${product.id}"
                           aria-label="Add one ${escapeHTML(product.title)}">+</button>
                 </div>
               </div>
@@ -933,13 +814,8 @@
         }).join("");
 
         content += `
-          <div class="total-row">
-            <span>Sample subtotal</span>
-            <span>${money(getCartTotal())}</span>
-          </div>
-          <button class="secondary-btn full-btn" data-action="clear-cart">
-            Empty cart
-          </button>
+          <div class="total-row"><span>Sample subtotal</span><span>${money(getCartTotal())}</span></div>
+          <button class="secondary-btn full-btn" data-action="clear-cart">Empty cart</button>
         `;
       }
 
@@ -951,37 +827,48 @@
       const percent = getProgressPercent();
 
       document.getElementById("progressPercent").textContent = percent + "%";
-      document.getElementById("progressCount").textContent =
-        count + " of " + LESSONS.length + " lessons";
+      document.getElementById("progressCount").textContent = count + " of " + LESSONS.length + " lessons";
       document.getElementById("progressFill").style.width = percent + "%";
       document.getElementById("progressBar").setAttribute("aria-valuenow", percent);
 
-      let message = "Your swimming journey starts here.";
-      if (percent === 100) {
-        message = "Amazing work! You have completed every sample lesson.";
-      } else if (percent >= 50) {
-        message = "Great progress! Keep practising safely.";
-      } else if (percent > 0) {
-        message = "Well done for getting started. Keep going!";
-      }
+      let message = "Your journey starts here!";
+      if (percent === 100) message = "Wonderful! You completed all four sample lessons.";
+      else if (percent >= 50) message = "Great progress! Keep learning safely.";
+      else if (percent > 0) message = "Well done! Keep taking little steps.";
 
       document.getElementById("progressMessage").textContent = message;
 
-      const checklist = document.getElementById("progressChecklist");
-
-      checklist.innerHTML = LESSONS.map(function (lesson) {
+      document.getElementById("progressChecklist").innerHTML = LESSONS.map(function (lesson) {
         const done = lessonIsComplete(lesson.id);
+        const countActivities = getActivityCount(lesson);
 
         return `
           <div class="card" style="display:flex;align-items:center;gap:12px">
             <div class="emoji" aria-hidden="true">${lesson.emoji}</div>
             <div style="flex:1;min-width:0">
               <strong>${escapeHTML(lesson.title)}</strong>
-              <div class="progress-note">${done ? "Completed ✓" : "Not completed yet"}</div>
+              <div class="progress-note">
+                ${done ? "Lesson completed ✓" : "Not completed yet"}
+                · ${countActivities}/${lesson.activities.length} activities checked
+              </div>
             </div>
             <span class="pill ${done ? "done" : ""}">${done ? "Done" : "To do"}</span>
           </div>
         `;
+      }).join("");
+
+      const badges = [];
+      if (count >= 1) badges.push("🌟 First Step");
+      if (count >= 2) badges.push("🐬 Keep Going");
+      if (count >= 3) badges.push("🏅 Super Learner");
+      if (count === LESSONS.length) badges.push("🏆 Lesson Champion");
+
+      document.getElementById("achievementText").textContent =
+        badges.length ? "Look at the badges you have earned!" :
+        "Complete your first lesson to earn your first badge.";
+
+      document.getElementById("achievementBadges").innerHTML = badges.map(function (badge) {
+        return '<span class="pill done">' + escapeHTML(badge) + '</span>';
       }).join("");
     }
 
@@ -990,12 +877,10 @@
       const percent = getProgressPercent();
       const cartCount = getCartCount();
 
-      document.getElementById("headerLessons").textContent =
-        count + "/" + LESSONS.length;
+      document.getElementById("headerLessons").textContent = count + "/" + LESSONS.length;
       document.getElementById("headerProgress").textContent = percent + "%";
       document.getElementById("headerCart").textContent = cartCount;
-      document.getElementById("cartTabCount").textContent =
-        cartCount ? "(" + cartCount + ")" : "";
+      document.getElementById("cartTabCount").textContent = cartCount ? "(" + cartCount + ")" : "";
     }
 
     function renderAll() {
@@ -1007,41 +892,25 @@
     }
 
     function showPage(pageName) {
-      const pages = ["learn", "shop", "progress"];
-
-      if (!pages.includes(pageName)) {
-        pageName = "learn";
-      }
-
-      pages.forEach(function (name) {
+      ["learn", "shop", "progress"].forEach(function (name) {
         document.getElementById(name + "Page").hidden = name !== pageName;
       });
 
       document.querySelectorAll(".tab").forEach(function (button) {
         const active = button.dataset.page === pageName;
         button.classList.toggle("active", active);
-
-        if (active) {
-          button.setAttribute("aria-current", "page");
-        } else {
-          button.removeAttribute("aria-current");
-        }
+        if (active) button.setAttribute("aria-current", "page");
+        else button.removeAttribute("aria-current");
       });
 
       window.scrollTo({ top: 0, behavior: "auto" });
     }
 
     function toggleLessonComplete(id) {
-      if (!LESSONS.some(function (lesson) {
-        return lesson.id === id;
-      })) {
-        return;
-      }
+      if (!LESSONS.some(function (lesson) { return lesson.id === id; })) return;
 
       if (lessonIsComplete(id)) {
-        completedLessons = completedLessons.filter(function (item) {
-          return item !== id;
-        });
+        completedLessons = completedLessons.filter(function (item) { return item !== id; });
       } else {
         completedLessons.push(id);
       }
@@ -1056,25 +925,57 @@
       });
     });
 
-    document.addEventListener("click", function (event) {
-      const button = event.target.closest("button[data-action]");
+    document.addEventListener("change", function (event) {
+      const input = event.target;
+      if (!input.matches('input[data-action="activity-check"]')) return;
 
-      if (!button) {
+      const lessonId = input.dataset.lessonId;
+      const index = Number(input.dataset.activityIndex);
+      const lesson = LESSONS.find(function (item) { return item.id === lessonId; });
+
+      if (!lesson || !Number.isInteger(index) || index < 0 || index >= lesson.activities.length) {
         return;
       }
+
+      if (!Array.isArray(activities[lessonId])) activities[lessonId] = [];
+
+      if (input.checked && !activities[lessonId].includes(index)) {
+        activities[lessonId].push(index);
+      } else if (!input.checked) {
+        activities[lessonId] = activities[lessonId].filter(function (item) {
+          return item !== index;
+        });
+      }
+
+      saveValue(STORAGE_KEYS.activities, activities);
+      renderProgress();
+      renderHeader();
+
+      const card = input.closest(".lesson-detail");
+      if (card) {
+        const status = card.querySelector(".activity-status");
+        if (status) {
+          status.textContent = getActivityCount(lesson) + " of " +
+            lesson.activities.length + " activities checked";
+        }
+      }
+    });
+
+    document.addEventListener("click", function (event) {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
 
       const action = button.dataset.action;
       const id = button.dataset.id;
 
       if (action === "toggle-details") {
         const detail = document.getElementById("detail-" + id);
+        if (!detail) return;
 
-        if (detail) {
-          const willOpen = detail.hidden;
-          detail.hidden = !willOpen;
-          button.setAttribute("aria-expanded", String(willOpen));
-          button.textContent = willOpen ? "Hide lesson steps" : "View lesson steps";
-        }
+        const willOpen = detail.hidden;
+        detail.hidden = !willOpen;
+        button.setAttribute("aria-expanded", String(willOpen));
+        button.textContent = willOpen ? "Hide lesson details" : "Explore lesson and activities";
         return;
       }
 
@@ -1083,9 +984,7 @@
         return;
       }
 
-      const product = PRODUCTS.find(function (item) {
-        return item.id === id;
-      });
+      const product = PRODUCTS.find(function (item) { return item.id === id; });
 
       if (action === "add-to-cart" && product) {
         cart[id] = Math.min((cart[id] || 0) + 1, 99);
@@ -1093,10 +992,7 @@
         cart[id] = Math.min((cart[id] || 0) + 1, 99);
       } else if (action === "decrease-quantity" && product) {
         cart[id] = (cart[id] || 0) - 1;
-
-        if (cart[id] <= 0) {
-          delete cart[id];
-        }
+        if (cart[id] <= 0) delete cart[id];
       } else if (action === "clear-cart") {
         cart = {};
       } else {
@@ -1108,16 +1004,17 @@
     });
 
     document.getElementById("resetProgress").addEventListener("click", function () {
-      if (window.confirm("Reset all completed lessons? This cannot be undone.")) {
+      if (window.confirm("Reset completed lessons and activity checklists?")) {
         completedLessons = [];
+        activities = {};
         saveValue(STORAGE_KEYS.completed, completedLessons);
+        saveValue(STORAGE_KEYS.activities, activities);
         renderAll();
       }
     });
 
     renderAll();
 
-    // Register offline support when the site is hosted over HTTPS.
     if ("serviceWorker" in navigator && location.protocol === "https:") {
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("./service-worker.js")
