@@ -97,11 +97,6 @@
   .how-detail ol b{color:var(--ink)}
   .how-detail>p{font-size:14.5px;color:var(--ink-2)}
   .how-detail>p b{color:var(--ink)}
-  .file-help{margin-top:16px;background:var(--gold-bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14.5px}
-  .file-help b{color:var(--ink)}
-  .file-help p{color:var(--ink-2);margin-top:4px}
-  .file-help p b{color:var(--gold)}
-  @media (prefers-color-scheme: dark){ .file-help p b{color:var(--gold)} }
   .team-file-note{margin-top:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 16px;font-size:14px;color:#bcd6da}
   .team-file-note b{color:#fff}
   .trust-highlight{display:flex;gap:14px;align-items:center;background:var(--surface-2);border:1.5px solid var(--teal);border-radius:14px;padding:16px 18px;margin-top:20px;max-width:560px}
@@ -373,7 +368,7 @@
       <div class="flow">
         <div class="flow-step"><div class="n">1</div><h3>Choose &amp; send your request</h3><p>Pick a cap, design or towel — and your size — from the shop below, and send us your request with your email. You do not need to attach a file here.</p></div>
         <div class="flow-step"><div class="n">2</div><h3>Get your quote</h3><p>We estimate the total cost, including shipping, and send you a quote by email.</p></div>
-        <div class="flow-step"><div class="n">3</div><h3>Accept, pay &amp; reply in the same thread</h3><p>If you accept, reply to our email with your order request. After you pay the quoted total, simply reply to that same email thread with your receipt and payment details — no new email, no form. Sending a design or logo file? See the note below.</p></div>
+        <div class="flow-step"><div class="n">3</div><h3>Accept, pay &amp; reply in the same thread</h3><p>If you accept, reply to our email with your order request. After you pay the quoted total, simply reply to that same email thread with your receipt, your PO number and your payment details. You can attach your design or logo file when you reply to our email.</p></div>
         <div class="flow-step"><div class="n">4</div><h3>We confirm your delivery dates</h3><p>Once your order is received, we take 1–2 days to discuss it with our design and production team, and confirm your delivery date range.</p></div>
         <div class="flow-step"><div class="n">5</div><h3>Receive</h3><p>Made for you, checked by hand, and delivered to your door — usually in 3–4 weeks. We email you when it is on its way.</p></div>
       </div>
@@ -381,15 +376,11 @@
         <h3>How it works</h3>
         <ol>
           <li><b>We estimate the total cost, including shipping, and send you a quote.</b></li>
-          <li><b>If you accept, reply to our email</b> with your order request. <b>After payment, reply to that same email thread</b> with your receipt, your <b>PO number</b> (which we sent you by email after your order) and your <b>payment details</b> — that is enough. Do not start a new email and do not fill in a form after payment.</li>
+          <li><b>If you accept, reply to our email</b> with your order request. <b>After payment, reply to that same email thread</b> with your receipt, your <b>PO number</b> (which we sent you by email after your order) and your <b>payment details</b> — that is all you need to do.</li>
           <li><b>Once your order is received</b>, we take <b>1–2 days</b> to discuss it with our design and production team, and <b>confirm your delivery date range</b>.</li>
           <li><b>Usual delivery is 3–4 weeks, door to door.</b></li>
         </ol>
         <p><b>Need it urgently?</b> Please let us know if you would like our premium delivery service. All standard shipping quotes are based on normal delivery.</p>
-      </div>
-      <div class="file-help">
-        <b>Design / logo file</b>
-        <p>Please attach your design/logo file when you reply to our email. Send your request first, watch for our email reply, then reply to that email with your design file attached, and we will confirm your quote. The request form on this page cannot take file attachments, so email is how we collect your file.</p>
       </div>
     </div>
   </section>
@@ -636,8 +627,8 @@
           <h3>Payment — Wise, after approval</h3>
           <p><b style="color:var(--ink)">1.</b> Approve your design preview and the total in your quote.</p>
           <p style="margin-top:8px"><b style="color:var(--ink)">2.</b> Our Wise payment details arrive with your confirmed quote, so you pay the approved total to the right account, in USD.</p>
-          <p style="margin-top:8px"><b style="color:var(--ink)">3.</b> After you pay, simply reply to the same email thread — the thread with your quote and PO number — and attach your receipt, with your PO number and your payment details (Wise transaction / payment record number, amount paid). Do not start a new email, and there is no form to fill in after payment. That thread already has your order, quote, PO number and preview, so you do not need to re-enter product, design, size or quantity. We check our account by hand and confirm receipt in that same thread before your order is made.</p>
-          <p class="note">Your confirmation email is your receipt: it carries your PO number, matched to the amount you paid and your transaction reference, plus your product, delivery details and estimated delivery date. Only if you cannot reply by email at all, the Google Form linked under the order builder is a backup for payment confirmation — PO number and payment details only.</p>
+          <p style="margin-top:8px"><b style="color:var(--ink)">3.</b> After you pay, simply reply to the same email thread — the thread with your quote and PO number — and attach your receipt, with your PO number and your payment details (Wise transaction / payment record number, amount paid). We check our account by hand and confirm receipt in that same thread before your order is made.</p>
+          <p class="note">Your confirmation email is your receipt: it carries your PO number, matched to the amount you paid and your transaction reference, plus your product, delivery details and estimated delivery date.</p>
         </div>
       </div>
     </div>
@@ -650,22 +641,21 @@
         <p class="eyebrow">Get a quote</p>
         <h2>Build your request in a minute</h2>
         <ul class="req-points">
-          <li><span><b>This builder is a calculator, not a payment form</b> — it helps you collect your idea and make one simple email to request a quote. Nothing to pay yet.</span></li>
+          <li><span><b>Build your request below</b> — choose your product, design, size and quantity, then send it by email for a quote.</span></li>
           <li><span><b>Step 1</b> — choose a product, only sizes, designs and prices that fit that choice show.</span></li>
           <li><span><b>Step 2</b> — Designer caps: tick as many designs as you want.</span></li>
           <li><span><b>Step 3</b> — pick your bundle or quantity.</span></li>
           <li><span><b>Summary</b> updates as you choose, listing every design ticked, ready to send by email.</span></li>
-          <li><span><b>Main way — the big Send by email button under your summary:</b> tap it to request your quote — it opens your email app to mlswimtailor@proton.me with the full summary filled in. If it does not open, tap Copy summary and paste the exact summary into any email — see fallback under the summary.</span></li>
-          <li><span><b>After payment — just reply to our email thread:</b> after you have approved your quote and paid, reply to that same email thread with your receipt, your PO number and your payment details. No new email, no form, and no re-entering product, design, size or quantity. The Google Form is only a backup if you cannot reply by email.</span></li>
+          <li><span><b>Send by email — request a quote:</b> tap the big Send by email button under your summary.</span></li>
+          <li><span><b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number.</span></li>
           <li><span><b>Complex mix</b> — different designs, sizes and quantities in one matrix — please use email instead, see note in Step 2.</span></li>
         </ul>
       </div>
       <div class="request">
         <h3>Your order request</h3>
         <p class="r-sub">Asking costs nothing, and there is nothing to pay yet. You only pay after approving your quote.</p>
-        <div class="req-clarify" role="note" aria-label="This builder is not a payment form">
-          <span class="big"><b>This builder helps you collect your idea and send one simple email to request a quote — it is NOT a payment form.</b></span>
-          Pick your product, design, size and quantity here, check the summary below, then tap <b>Send by email</b>. Nothing to pay yet — you only pay after you have approved your quote. After payment, you do <b>not</b> use a form: you simply <b>reply to our email thread</b> with your receipt and payment details.
+        <div class="req-clarify" role="note" aria-label="How to request a quote">
+          Choose your product, then send your request by email for a quote.
         </div>
         <div class="req-grid">
           <label class="full"><span class="rq-step">Step 1 — Choose a product</span>What would you like?
@@ -755,21 +745,13 @@
           <a class="btn btn-primary btn-email-main" id="rqMailto" href="mailto:mlswimtailor@proton.me?subject=M%26L%20Swim%20Tailor%20%E2%80%94%20order%20request"><span>Send by email — request a quote</span><span class="btn-email-sub">To mlswimtailor@proton.me — opens your email app with the full summary above already filled in</span></a>
           <div class="req-actions-row">
             <button class="btn btn-teal" id="rqCopy" type="button">Copy summary — paste into any email</button>
-            <!-- Backup only: href is set by the script to the correct form for the chosen product type. After payment the normal way is to reply to our email thread — no form is required. -->
-            <a class="btn btn-outline" id="rqFormBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSffuCIAk6iRIbv0XxlIdYbQIh3KkOXB66yUBAzJadizI6lz6w/viewform" target="_blank" rel="noopener">Google Form — backup only, if you cannot reply by email</a>
+            <!-- Backup only: href is set by the script to the correct form for the chosen product type. After payment, customers reply to our email thread with their receipt and PO number. -->
+            <a class="btn btn-outline" id="rqFormBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSffuCIAk6iRIbv0XxlIdYbQIh3KkOXB66yUBAzJadizI6lz6w/viewform" target="_blank" rel="noopener">Google Form</a>
           </div>
-          <p class="hint"><b>Most reliable way:</b> tap the big <b>Send by email</b> button above. If it does not open your email app, tap <b>Copy summary</b> — it copies the exact summary text above, word for word — then paste it into any email or email thread to <b>mlswimtailor@proton.me</b> and send it from your own email app.</p>
         </div>
         <div class="req-after-note">
-          <p><span style="display:block;font-size:16px;margin-bottom:4px"><b>After payment — easiest way: reply to our email thread.</b></span>
-          Once you have approved your quote and paid, simply <b>reply to the same email thread</b> — the thread where we sent your quote and your <b>PO number</b> (we sent that PO number to you by email after your order) — and attach your receipt there, with your <b>PO number</b> and your <b>payment details</b> (payment record / Wise transaction number, amount paid and date). That is all you need to do.</p>
-          <p style="margin-top:10px"><b>Do not start a new email, and do not fill in a form after payment.</b> Replying to the same thread is easier and keeps everything together: that thread already has your order, your quote, your PO number and your design preview, so we can match your payment straight away. You do <b>not</b> need to re-enter product, design, size or quantity anywhere after payment.</p>
-          <p style="margin-top:10px"><b>Backup only:</b> if you cannot reply by email, you may use the <b>Google Form — backup only</b> button above to confirm payment instead, with your PO number and payment details only. It is an alternative, not required, and it is not for requesting a quote. If emailing directly instead of replying, write to <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a> and include your PO number.</p>
-        </div>
-        <div class="req-mail-note">
-          <p><b>How to request your quote — main way:</b> tap the big <b>Send by email — request a quote</b> button directly under your summary. It opens your email app addressed to <b>mlswimtailor@proton.me</b> with your full order summary already filled in — check it, then send that one simple email. Nothing to pay yet.</p>
-          <p style="margin-top:10px"><b>If Send by email does not open your mail app:</b> tap <b>Copy summary</b> instead — it copies the exact summary text, word for word — then paste it into any email to <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a> and send it from your own email app. That new email is only for requesting a quote — after payment, reply to our email thread instead (see the after-payment note above).</p>
-          <p style="margin-top:10px">Our email address: <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a></p>
+          <p>To get a quote, email us at <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a></p>
+          <p style="margin-top:6px">After payment, reply to our email with your receipt and PO number.</p>
         </div>
         <ul class="checklist">
           <li>Exact spelling of every name to print</li>
@@ -807,9 +789,9 @@
         <details><summary>How long will my order take?</summary><p>Usual delivery is 3–4 weeks, door to door. Once your order is received, we take 1–2 days to discuss it with our design and production team, and confirm your delivery date range. If you need it urgently, let us know and we can quote our premium delivery service — all standard shipping quotes are based on normal delivery.</p></details>
         <details><summary>Can I get my order faster?</summary><p>Yes — if you need your order urgently, please let us know and ask about our premium delivery service. All standard shipping quotes are based on normal delivery, which usually takes 3–4 weeks, door to door.</p></details>
         <details><summary>How much is shipping?</summary><p>It depends on your destination zone and the weight of your parcel. Guide rates for one cap are in the shipping section above; your exact charge is confirmed in your quote as part of one total — product + shipping.</p></details>
-        <details><summary>When do I pay, and how?</summary><p>Only after you approve your design preview and quote. You pay the quoted total by Wise in USD — our Wise details arrive with your confirmed quote. After you pay, simply reply to that same email thread with your receipt, your PO number and your payment details — no new email and no form to fill in after payment.</p></details>
-        <details><summary>How do I send my receipt after payment?</summary><p>Reply to the same email thread — the thread where we sent your quote and your PO number — and attach your receipt there, with your PO number and your payment details (Wise transaction / payment record number, amount paid). That thread already has your order, quote, PO number and preview, so you do not need to re-enter product, design, size or quantity. Do not start a new email. Only if you cannot reply by email, use the Google Form backup linked under the order builder, with PO number and payment details only.</p></details>
-        <details><summary>What do you need for a name or logo print?</summary><p>For a name, the exact spelling in your request. For a logo, a clear file (PNG, PDF or vector is best) — see the Design / logo file note under “How it works” above for how to send it. We print up to 5 colours, and you always approve a visual proof first. Please double-check spelling: we print exactly what you approve.</p></details>
+        <details><summary>When do I pay, and how?</summary><p>Only after you approve your design preview and quote. You pay the quoted total by Wise in USD — our Wise details arrive with your confirmed quote. After you pay, simply reply to that same email thread with your receipt, your PO number and your payment details.</p></details>
+        <details><summary>How do I send my receipt after payment?</summary><p>After payment, reply to our email with your receipt and PO number.</p></details>
+        <details><summary>What do you need for a name or logo print?</summary><p>For a name, the exact spelling in your request. For a logo, a clear file (PNG, PDF or vector is best) — just attach it when you reply to our email. We print up to 5 colours, and you always approve a visual proof first. Please double-check spelling: we print exactly what you approve.</p></details>
         <details><summary>Can I mix designs in a bundle?</summary><p>Ask in your request — for most combinations we can confirm a mixed bundle in your quote, at the same bundle pricing for that cap style.</p></details>
         <details><summary>Can I return a customised item?</summary><p>Personalised items are made for you, so they can't be returned for a change of mind. If anything arrives faulty, or different from the preview you approved, tell us and we will put it right with a replacement.</p></details>
       </div>
@@ -831,11 +813,11 @@
 <script>
 (function(){
   "use strict";
-  // Backup-only Google Form links (checked live 25 Oct 2026): seamless custom caps and team/custom orders use the tailor-made form; Designer cap limited edition 2026 and the Blind Box use the standard printed-cap form; towels use the dedicated Fast-Dry Towel Order form. After payment, no form is required — the customer replies to our email thread with their receipt; these links are only a backup if they cannot reply by email.
+  // Backup-only Google Form links (checked live 25 Oct 2026): seamless custom caps and team/custom orders use the tailor-made form; Designer cap limited edition 2026 and the Blind Box use the standard printed-cap form; towels use the dedicated Fast-Dry Towel Order form. After payment, the customer replies to our email thread with their receipt and PO number; these links are only a backup if they cannot reply by email.
   var CONFIG = {
     seamless: {
       formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSffuCIAk6iRIbv0XxlIdYbQIh3KkOXB66yUBAzJadizI6lz6w/viewform",
-      formNote: "<b>To request a quote, use Send by email above.</b> <b>After payment:</b> just <b>reply to our email thread</b> — the thread with your quote and PO number — attaching your receipt, with your PO number and payment details (payment record / Wise transaction number). Do <b>not</b> start a new email, do <b>not</b> fill in a form, and do <b>not</b> re-enter product, design, size or quantity. The Google Form button is <b>only a backup</b> if you cannot reply by email.",
+      formNote: "<b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number.",
       productLabel: "Seamless racing cap — US$14.99 each",
       priceHint: "<b>US$14.99 per cap</b> &nbsp;·&nbsp; 3 caps US$43.99 (approx. 2% off) &nbsp;·&nbsp; 5 caps US$66.99 (approx. 10% off) &nbsp;·&nbsp; Shipping added in your quote.",
       sizeLabel: "Cap size & fit",
@@ -846,7 +828,7 @@
     },
     printed: {
       formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdhQl7myzD61-5hsWlN7CAQsvVla3VZYO6FQHq29HvRCsDeig/viewform",
-      formNote: "<b>To request a quote, use Send by email above.</b> <b>After payment:</b> just <b>reply to our email thread</b> — the thread with your quote and PO number — attaching your receipt, with your PO number and payment details (payment record / Wise transaction number). Do <b>not</b> start a new email, do <b>not</b> fill in a form, and do <b>not</b> re-enter product, design, size or quantity. The Google Form button is <b>only a backup</b> if you cannot reply by email. Designer cap limited edition 2026 designs come as shown — names are printed only on custom seamless caps. For a complex mix matrix, email your summary to <b>mlswimtailor@proton.me</b> instead — see the note in Step 2.",
+      formNote: "<b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number. Designer cap limited edition 2026 designs come as shown — names are printed only on custom seamless caps. For a complex mix matrix, email your summary to <b>mlswimtailor@proton.me</b> instead — see the note in Step 2.",
       productLabel: "Designer cap limited edition 2026 — US$19.99 each",
       priceHint: "<b>US$19.99 per cap</b> &nbsp;·&nbsp; 3 caps US$58.99 (approx. 1% off) &nbsp;·&nbsp; 5 caps US$88.99 (approx. 10% off) &nbsp;·&nbsp; Shipping added in your quote.",
       sizeLabel: "Cap size & fit",
@@ -857,7 +839,7 @@
     },
     blindbox: {
       formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdhQl7myzD61-5hsWlN7CAQsvVla3VZYO6FQHq29HvRCsDeig/viewform",
-      formNote: "<b>To request a quote, use Send by email above.</b> <b>After payment:</b> just <b>reply to our email thread</b> — the thread with your quote and PO number — attaching your receipt, with your PO number and payment details (payment record / Wise transaction number). Do <b>not</b> start a new email, do <b>not</b> fill in a form, and do <b>not</b> re-enter product, design, size or quantity. The Google Form button is <b>only a backup</b> if you cannot reply by email. Blind Box designs are random and come as designed — names are printed only on custom seamless caps.",
+      formNote: "<b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number. Blind Box designs are random and come as designed — names are printed only on custom seamless caps.",
       productLabel: "Blind Box — 5 random Designer caps, incl. one hidden Designer cap with 2027 potential — US$88.99",
       priceHint: "<b>US$88.99 per Blind Box (5 caps)</b> &nbsp;·&nbsp; Same price as the Designer 5-cap bundle (approx. 10% off) &nbsp;·&nbsp; Limited: only 50 boxes before the Q1 2027 official launch &nbsp;·&nbsp; Shipping added in your quote.",
       sizeLabel: "Cap size & fit",
@@ -868,7 +850,7 @@
     },
     towel: {
       formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf9e4FitniYbTrwpcSsHXx-PxvqD-0klxxXfHCFkBRJi6xVyA/viewform",
-      formNote: "<b>To request a quote, use Send by email above.</b> <b>After payment:</b> just <b>reply to our email thread</b> — the thread with your quote and PO number — attaching your receipt, with your PO number and payment details (payment record / Wise transaction number). Do <b>not</b> start a new email, do <b>not</b> fill in a form, and do <b>not</b> re-enter product, size or quantity. The Google Form button is <b>only a backup</b> if you cannot reply by email. Towel prices: Small 35 × 75 cm US$19.99 · Medium 70 × 140 cm US$29.99 · Large 80 × 180 cm US$32.99.",
+      formNote: "<b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number. Towel prices: Small 35 × 75 cm US$19.99 · Medium 70 × 140 cm US$29.99 · Large 80 × 180 cm US$32.99.",
       productLabel: "Fast-dry swim towel",
       priceHint: "<b>Small US$19.99 · Medium US$29.99 · Large US$32.99</b> &nbsp;·&nbsp; Price depends only on the towel size you pick below. Shipping added in your quote.",
       sizeLabel: "Towel size",
@@ -879,7 +861,7 @@
     },
     team: {
       formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSffuCIAk6iRIbv0XxlIdYbQIh3KkOXB66yUBAzJadizI6lz6w/viewform",
-      formNote: "<b>To request a quote, use Send by email above.</b> <b>After payment:</b> just <b>reply to our email thread</b> — the thread with your quote and PO number — attaching your receipt, with your PO number and payment details (payment record / Wise transaction number). Do <b>not</b> start a new email, do <b>not</b> fill in a form, and do <b>not</b> re-enter product, team item, size or quantity — your team choices are already in that thread. The Google Form button is <b>only a backup</b> if you cannot reply by email.",
+      formNote: "<b>Send by email — request a quote.</b> After payment, reply to our email with your receipt and PO number.",
       productLabel: "Team printing — price on quote",
       priceHint: "<b>Price on quote for team printing</b> &nbsp;·&nbsp; Team caps from US$14.99 per cap and team towels at the towel prices above are confirmed in your quote, with shipping by weight and zone.",
       sizeLabel: "Sizes needed",
@@ -910,11 +892,9 @@
   };
   // Google Form routing is preserved per product type (seamless/team = tailor-made form,
   // printed/blindbox = standard form, towel = towel form), but the form is BACKUP ONLY:
-  // after payment the customer does not need a form at all — they reply to our email
-  // thread (which already has the order, quote, PO number and preview) with their
-  // receipt and payment details. The form is only for a customer who cannot reply by
-  // email, and then only PO number and payment details. It intentionally does NOT
-  // carry over or re-ask product, design, size or quantity.
+  // after payment the customer simply replies to our email thread with their receipt
+  // and PO number. The form is only for a customer who cannot reply by email, and
+  // then only PO number and payment details.
   function formUrlFor(type){
     var cfg = CONFIG[type] || CONFIG.seamless;
     return cfg.formUrl;
