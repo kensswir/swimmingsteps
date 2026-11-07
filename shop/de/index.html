@@ -280,6 +280,35 @@
   .checklist li{display:flex;gap:9px}
   .checklist li::before{content:"✓";color:var(--teal);font-weight:900}
 
+  /* Quote request form */
+  .quote-form-wrap{background:var(--surface);border:2px solid var(--teal);border-radius:24px;padding:30px;box-shadow:var(--shadow)}
+  .quote-form-wrap h3{font-size:22px;font-family:"Archivo",sans-serif}
+  .quote-form-wrap .qf-sub{color:var(--ink-2);font-size:15px;margin-top:6px;max-width:62ch}
+  .qform{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+  .qform .field{display:flex;flex-direction:column}
+  .qform .field.full{grid-column:1/-1}
+  .qform label{font-size:13.5px;font-weight:700;margin-bottom:5px}
+  .qform label .opt{font-weight:500;color:var(--ink-2)}
+  .qform input,.qform select,.qform textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-size:15px;font-family:inherit;line-height:1.45}
+  .qform textarea{resize:vertical;min-height:84px}
+  .qform .hint{font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.5}
+  .qform-actions{grid-column:1/-1;display:flex;flex-direction:column;gap:12px}
+  .qform-actions .btn{align-self:flex-start;min-width:220px}
+  .qform-actions .btn[disabled]{opacity:.65;cursor:wait}
+  .qf-status{display:none;border-radius:12px;padding:14px 16px;font-size:14.5px;line-height:1.6}
+  .qf-status.show{display:block}
+  .qf-status.ok{background:var(--surface-2);border:1.5px solid var(--teal);color:var(--ink)}
+  .qf-status.err{background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--ink)}
+  .qf-status a{font-weight:700;word-break:break-all}
+  .qf-file-note{grid-column:1/-1;font-size:13.5px;color:var(--ink-2);line-height:1.55}
+  .qf-file-note b{color:var(--ink)}
+  .email-alt{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+  .email-alt h3{font-size:17px;margin-bottom:6px}
+  .email-alt p{color:var(--ink-2);font-size:14.5px;line-height:1.6}
+  .email-alt p b{color:var(--ink)}
+  .email-alt p a{font-weight:700;word-break:break-all}
+  @media (max-width:600px){ .quote-form-wrap{padding:22px 18px} .qform{grid-template-columns:1fr} .qform-actions .btn{align-self:stretch;width:100%} }
+
   /* FAQ */
   .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
@@ -391,22 +420,13 @@
         <h2>Fünf Schritte, keine Überraschungen</h2>
       </div>
       <div class="flow">
-        <div class="flow-step"><div class="n">1</div><h3>Auswählen &amp; Anfrage senden</h3><p>Wählen Sie unten im Shop eine Kappe, ein Design oder ein Handtuch — und Ihre Größe — und senden Sie uns Ihre Anfrage per E-Mail. Sie müssen hier keine Datei anhängen.</p></div>
+        <div class="flow-step"><div class="n">1</div><h3>Auswählen &amp; Anfrage senden</h3><p>Wählen Sie unten im Shop eine Kappe, ein Design oder ein Handtuch — und Ihre Größe — und senden Sie uns Ihre Anfrage über das Formular unten oder per E-Mail. Sie müssen hier keine Datei anhängen.</p></div>
         <div class="flow-step"><div class="n">2</div><h3>Angebot erhalten</h3><p>Wir schätzen die Gesamtkosten inklusive Versand und senden Ihnen ein Angebot per E-Mail.</p></div>
-        <div class="flow-step"><div class="n">3</div><h3>Annehmen, zahlen &amp; im selben Verlauf antworten</h3><p>Wenn Sie annehmen, antworten Sie auf unsere E-Mail mit Ihrer Bestellanfrage. Nachdem Sie den Angebotsbetrag gezahlt haben, antworten Sie einfach auf denselben E-Mail-Verlauf mit Ihrem Zahlungsbeleg, Ihrer PO-Nummer und Ihren Zahlungsdetails. Ihre Design- oder Logo-Datei können Sie anhängen, wenn Sie auf unsere E-Mail antworten.</p></div>
+        <div class="flow-step"><div class="n">3</div><h3>Annehmen &amp; zahlen</h3><p>Wenn Sie annehmen, geben Sie die Vorschau und den Gesamtbetrag frei und zahlen den bestätigten Betrag. Wie Zahlung und Beleg genau ablaufen, steht einmal zusammengefasst unter <a href="#shipping">Versand &amp; Zahlung</a>. Ihre Design- oder Logo-Datei hängen Sie einfach an, wenn Sie auf unsere E-Mail antworten.</p></div>
         <div class="flow-step"><div class="n">4</div><h3>Wir bestätigen Ihre Liefertermine</h3><p>Sobald Ihre Bestellung eingegangen ist, besprechen wir sie innerhalb von 1–2 Tagen mit unserem Design- und Produktionsteam und bestätigen Ihren Lieferzeitraum.</p></div>
         <div class="flow-step"><div class="n">5</div><h3>Erhalten</h3><p>Für Sie gefertigt, von Hand geprüft und bis vor Ihre Haustür geliefert — in der Regel in 3–4 Wochen. Wir schreiben Ihnen per E-Mail, wenn Ihre Bestellung unterwegs ist.</p></div>
       </div>
-      <div class="how-detail">
-        <h3>So funktioniert es</h3>
-        <ol>
-          <li><b>Wir schätzen die Gesamtkosten inklusive Versand und senden Ihnen ein Angebot.</b></li>
-          <li><b>Wenn Sie annehmen, antworten Sie auf unsere E-Mail</b> mit Ihrer Bestellanfrage. <b>Nach der Zahlung antworten Sie auf denselben E-Mail-Verlauf</b> mit Ihrem Zahlungsbeleg, Ihrer <b>PO-Nummer</b> (die wir Ihnen nach Ihrer Bestellung per E-Mail gesendet haben) und Ihren <b>Zahlungsdetails</b> — mehr müssen Sie nicht tun.</li>
-          <li><b>Sobald Ihre Bestellung eingegangen ist</b>, besprechen wir sie innerhalb von <b>1–2 Tagen</b> mit unserem Design- und Produktionsteam und <b>bestätigen Ihren Lieferzeitraum</b>.</li>
-          <li><b>Übliche Lieferzeit: 3–4 Wochen, bis vor Ihre Haustür.</b></li>
-        </ol>
-        <p><b>Eilig?</b> Bitte teilen Sie uns mit, wenn Sie unseren Premium-Lieferservice wünschen. Alle Standard-Versandangebote basieren auf normaler Lieferung.</p>
-      </div>
+      <p class="flow-note"><b>Eilig?</b> Bitte teilen Sie uns in Ihrer Anfrage mit, wenn Sie unseren Premium-Lieferservice wünschen. Alle Standard-Versandangebote basieren auf normaler Lieferung.</p>
     </div>
   </section>
 
@@ -619,7 +639,7 @@
           <div><b>1 · Anfrage zuerst senden</b>Sagen Sie uns, dass es eine Team-Bestellung ist, ungefähr wie viele Stücke Sie brauchen, und geben Sie uns Ihre E-Mail-Adresse.</div>
           <div><b>2 · Wir antworten per E-Mail</b>Achten Sie auf unsere E-Mail-Antwort an die Adresse, die Sie uns gegeben haben.</div>
           <div><b>3 · Mit Ihrer Design-Datei antworten</b>Antworten Sie auf diese E-Mail mit Ihrer angehängten Design- oder Logo-Datei, plus Farben, Namen, Größen und Mengen.</div>
-          <div><b>4 · Angebot erhalten &amp; freigeben</b>Wir bestätigen Ihr Angebot mit einer Vorschau, Ihrer PO-Nummer und einem Gesamtbetrag — Produkt + Versand. Geben Sie es frei, zahlen Sie den bestätigten Betrag und antworten Sie dann auf denselben E-Mail-Verlauf mit Ihrem Zahlungsbeleg und Ihren Zahlungsdetails.</div>
+          <div><b>4 · Angebot erhalten &amp; freigeben</b>Wir bestätigen Ihr Angebot mit einer Vorschau, Ihrer PO-Nummer und einem Gesamtbetrag — Produkt + Versand. Nach Ihrer Freigabe zahlen Sie den bestätigten Betrag; der genaue Ablauf steht unter Versand &amp; Zahlung.</div>
           <div><b>5 · Wir bestellen &amp; senden</b>Gefertigt, von Hand geprüft, bis vor Ihre Haustür geliefert — in der Regel in 3–4 Wochen.</div>
         </div>
         <a class="btn btn-primary" href="#request">Team-Angebot anfordern</a>
@@ -665,24 +685,82 @@
       <div class="section-head">
         <p class="eyebrow">Angebot anfordern</p>
         <h2>Angebot anfordern</h2>
-        <p>Für ein Angebot schreiben Sie uns eine E-Mail an <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a></p>
-        <p style="margin-top:6px">Nach der Zahlung antworten Sie bitte auf unsere E-Mail und fügen Sie Ihren Zahlungsbeleg und Ihre PO-Nummer bei.</p>
-        <p style="margin-top:6px">Alle Preise wie aufgeführt — der endgültige Gesamtbetrag (Produkt + Versand) wird in Ihrem Angebot per E-Mail bestätigt.</p>
+        <p>Zwei Wege zum selben Angebot: das Formular hier als zweite Option — oder wie bisher per E-Mail. Alle Preise wie aufgeführt; der endgültige Gesamtbetrag (Produkt + Versand) wird in Ihrem Angebot bestätigt, bevor Sie zahlen.</p>
       </div>
 
-      <div class="email-example" aria-label="Beispiel für eine E-Mail-Anfrage">
-        <div class="email-example-head">
-          <h3 style="font-size:18px;margin:0">Beispiel für eine E-Mail-Anfrage:</h3>
-        </div>
-        <div class="email-example-body"><span class="ex-title">Ihre Bestellübersicht — genau dieser Text kommt in Ihre E-Mail</span>
+      <div class="quote-form-wrap">
+        <h3>Anfrageformular</h3>
+        <p class="qf-sub">Sagen Sie uns, was Sie brauchen. Wir antworten per E-Mail mit einer Design-Vorschau und einem Gesamtbetrag — in der Regel innerhalb von 1–2 Tagen. Sie zahlen noch nichts.</p>
+        <form class="qform" id="quoteForm" novalidate>
+          <div class="field">
+            <label for="qf-name">Ihr Name *</label>
+            <input id="qf-name" name="name" type="text" autocomplete="name" required placeholder="z. B. Anna Müller" />
+          </div>
+          <div class="field">
+            <label for="qf-email">E-Mail-Adresse *</label>
+            <input id="qf-email" name="email" type="email" autocomplete="email" required placeholder="name@beispiel.de" />
+          </div>
+          <div class="field full">
+            <label for="qf-product">Was brauchen Sie? *</label>
+            <select id="qf-product" name="product" required>
+              <option value="">Bitte wählen …</option>
+              <option value="Nahtlose Rennkappe — EUR 14 pro Kappe">Nahtlose Rennkappe — EUR 14 pro Kappe</option>
+              <option value="Designer-Kappe Limited Edition 2026 — EUR 19 pro Kappe">Designer-Kappe Limited Edition 2026 — EUR 19 pro Kappe</option>
+              <option value="Blind Box — 5 Designer-Kappen — EUR 88 pro Box">Blind Box — 5 Designer-Kappen — EUR 88 pro Box</option>
+              <option value="Schnelltrocknendes Schwimmhandtuch — EUR 19 / 29 / 32">Schnelltrocknendes Schwimmhandtuch — EUR 19 / 29 / 32</option>
+              <option value="Team- / Vereinsbestellung">Team- / Vereinsbestellung</option>
+              <option value="Sonstiges / noch unsicher">Sonstiges / noch unsicher</option>
+            </select>
+          </div>
+          <div class="field full is-hidden" id="qf-design-field">
+            <label for="qf-design">Welches Design? <span class="opt">(optional)</span></label>
+            <input id="qf-design" name="design" type="text" placeholder="z. B. Unterwasser-Fischwelt — oder Ihr eigenes Design / Logo beschreiben" />
+            <p class="hint">Bei der Designer-Kappe eines der 13 Designs oben nennen. Bei Handtuch oder Team-Bestellung kurz Ihr Motiv, Ihre Farben oder Ihr Logo beschreiben.</p>
+          </div>
+          <div class="field full is-hidden" id="qf-print-field">
+            <label for="qf-printname">Name für den Druck <span class="opt">(nur nahtlose Kappe, optional)</span></label>
+            <input id="qf-printname" name="printname" type="text" placeholder="Genau so, wie er auf der Kappe stehen soll" />
+            <p class="hint">Bitte Schreibweise genau prüfen — gedruckt wird, was Sie hier angeben und später in der Vorschau freigeben.</p>
+          </div>
+          <div class="field">
+            <label for="qf-size">Größe &amp; Passform</label>
+            <select id="qf-size" name="size">
+              <option value="">Bitte wählen …</option>
+              <option value="Erwachsene — Standard-Passform">Erwachsene — Standard-Passform</option>
+              <option value="Erwachsene — Passform für langes Haar">Erwachsene — Passform für langes Haar</option>
+              <option value="Erwachsene — Passform mit extra Platz">Erwachsene — Passform mit extra Platz</option>
+              <option value="Kinder — Standard-Passform">Kinder — Standard-Passform</option>
+              <option value="Kinder — Passform für langes Haar">Kinder — Passform für langes Haar</option>
+              <option value="Kinder — Passform mit extra Platz">Kinder — Passform mit extra Platz</option>
+              <option value="Handtuch Small — 35 × 75 cm">Handtuch Small — 35 × 75 cm</option>
+              <option value="Handtuch Medium — 70 × 140 cm">Handtuch Medium — 70 × 140 cm</option>
+              <option value="Handtuch Large — 80 × 180 cm">Handtuch Large — 80 × 180 cm</option>
+              <option value="Gemischt / Beratung gewünscht">Gemischt / Beratung gewünscht</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="qf-qty">Menge</label>
+            <input id="qf-qty" name="quantity" type="number" min="1" step="1" inputmode="numeric" value="1" />
+          </div>
+          <div class="field">
+            <label for="qf-country">Lieferland *</label>
+            <input id="qf-country" name="country" type="text" autocomplete="country-name" required placeholder="z. B. Deutschland" />
+          </div>
+          <div class="field full">
+            <label for="qf-extra">Noch etwas? <span class="opt">(optional)</span></label>
+            <textarea id="qf-extra" name="extra" placeholder="Alles Weitere, das wir für Ihr Angebot wissen sollten — z. B. Termin, Vereinsname, Farben oder besondere Wünsche."></textarea>
+          </div>
+          <p class="qf-file-note"><b>Keine Datei hier hochladen.</b> Ihre Design- oder Logo-Datei hängen Sie einfach an, wenn Sie auf unsere E-Mail antworten — wie bisher.</p>
+          <div class="qform-actions">
+            <button class="btn btn-primary" type="submit" id="qf-submit">Anfrage senden</button>
+            <div class="qf-status" id="qf-status" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
 
-M&amp;L Swim Tailor — Bestellanfrage
-Produkt: Nahtlose Rennkappe — EUR 14 pro Stück
-Kappengröße &amp; Passform: Erwachsene — Standard-Passform
-Menge: 1
-Design-/Logo-Datei: Ich hänge sie an, wenn ich auf Ihre E-Mail antworte.
-
-Bitte antworten Sie per E-Mail, damit ich meine Design-Datei senden kann, und bestätigen Sie dann mein Angebot mit einer Design-Vorschau und meinem Gesamtbetrag (Produkt + Versand).</div>
+      <div class="email-alt">
+        <h3>Lieber per E-Mail?</h3>
+        <p>Schreiben Sie stattdessen an <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a> — <b>gleiches Angebot, gleiche Antwort.</b> Nennen Sie in Ihrer E-Mail einfach Produkt, Größe &amp; Passform, Menge und Lieferland — und, falls zutreffend, Ihr Design oder den Namen für den Druck.</p>
       </div>
     </div>
   </section>
@@ -711,9 +789,8 @@ Bitte antworten Sie per E-Mail, damit ich meine Design-Datei senden kann, und be
         <details><summary>Wie lange dauert meine Bestellung?</summary><p>Übliche Lieferzeit: 3–4 Wochen, bis vor Ihre Haustür. Sobald Ihre Bestellung eingegangen ist, besprechen wir sie innerhalb von 1–2 Tagen mit unserem Design- und Produktionsteam und bestätigen Ihren Lieferzeitraum. Wenn Sie es eilig haben, teilen Sie es uns mit, und wir können Ihnen unseren Premium-Lieferservice anbieten — alle Standard-Versandangebote basieren auf normaler Lieferung.</p></details>
         <details><summary>Kann ich meine Bestellung schneller bekommen?</summary><p>Ja — wenn Sie Ihre Bestellung dringend brauchen, teilen Sie es uns bitte mit und fragen Sie nach unserem Premium-Lieferservice. Alle Standard-Versandangebote basieren auf normaler Lieferung, die in der Regel 3–4 Wochen bis vor Ihre Haustür dauert.</p></details>
         <details><summary>Wie viel kostet der Versand?</summary><p>Das hängt von Ihrer Zielzone und dem Gewicht Ihres Pakets ab. Richtwerte für eine Kappe finden Sie oben im Versandbereich; Ihre genauen Kosten werden in Ihrem Angebot als Teil eines Gesamtbetrags bestätigt — Produkt + Versand.</p></details>
-        <details><summary>Wann zahle ich, und wie?</summary><p>Erst, nachdem Sie Ihre Design-Vorschau und Ihr Angebot freigegeben haben. Unsere Zahlungsdetails erhalten Sie per E-Mail mit Ihrem bestätigten Angebot. Nachdem Sie gezahlt haben, antworten Sie einfach auf denselben E-Mail-Verlauf mit Ihrem Zahlungsbeleg, Ihrer PO-Nummer und Ihren Zahlungsdetails.</p></details>
+        <details><summary>Wann zahle ich, und wie?</summary><p>Erst, nachdem Sie Ihre Design-Vorschau und Ihr Angebot freigegeben haben. Der vollständige Ablauf — Zahlungsdetails, Beleg und PO-Nummer — steht einmal zusammengefasst oben unter <a href="#shipping">Versand &amp; Zahlung</a>.</p></details>
         <details><summary>Welche Zahlungsmethoden akzeptieren Sie?</summary><p>Wir akzeptieren PayPal und Wise. Die Zahlungsdetails erhalten Sie mit Ihrem bestätigten Angebot per E-Mail.</p></details>
-        <details><summary>Wie sende ich meinen Beleg nach der Zahlung?</summary><p>Nach der Zahlung antworten Sie bitte auf unsere E-Mail und fügen Sie Ihren Zahlungsbeleg und Ihre PO-Nummer bei.</p></details>
         <details><summary>Was brauchen Sie für einen Namens- oder Logo-Druck?</summary><p>Für einen Namen: die genaue Schreibweise in Ihrer Anfrage. Für ein Logo: eine klare Datei (PNG, PDF oder Vektor ist am besten) — hängen Sie sie einfach an, wenn Sie auf unsere E-Mail antworten. Wir drucken bis zu 5 Farben, und Sie geben immer zuerst eine visuelle Vorschau frei. Bitte prüfen Sie die Schreibweise doppelt: Wir drucken genau das, was Sie freigeben.</p></details>
         <details><summary>Kann ich Designs in einem Set mischen?</summary><p>Fragen Sie in Ihrer Anfrage — bei den meisten Kombinationen können wir ein gemischtes Set in Ihrem Angebot bestätigen, zu denselben Setpreisen für diesen Kappenstil.</p></details>
         <details><summary>Kann ich einen personalisierten Artikel zurückgeben?</summary><p>Personalisierte Artikel werden für Sie gefertigt und können daher nicht wegen Meinungsänderung zurückgegeben werden. Wenn etwas fehlerhaft ankommt oder anders als die Vorschau, die Sie freigegeben haben, sagen Sie uns Bescheid, und wir bringen es mit einem Ersatz in Ordnung.</p></details>
@@ -731,6 +808,99 @@ Bitte antworten Sie per E-Mail, damit ich meine Design-Datei senden kann, und be
   </footer>
 </main>
 
+<script>
+(function(){
+  var form = document.getElementById('quoteForm');
+  if(!form) return;
+  var product = document.getElementById('qf-product');
+  var designField = document.getElementById('qf-design-field');
+  var printField = document.getElementById('qf-print-field');
+  var designInput = document.getElementById('qf-design');
+  var printInput = document.getElementById('qf-printname');
+  var statusBox = document.getElementById('qf-status');
+  var submitBtn = document.getElementById('qf-submit');
+  var ENDPOINT = 'https://gf6db9d70aa6028-freelanceenq.adb.ap-singapore-1.oraclecloudapps.com/ords/admin/enquiries/submit';
 
+  function updateConditional(){
+    var v = product.value || '';
+    var showDesign = v.indexOf('Designer-Kappe') !== -1 || v.indexOf('Blind Box') !== -1 || v.indexOf('Handtuch') !== -1 || v.indexOf('Team-') !== -1;
+    var showPrint = v.indexOf('Nahtlose') !== -1;
+    designField.classList.toggle('is-hidden', !showDesign);
+    printField.classList.toggle('is-hidden', !showPrint);
+    if(!showDesign && designInput) designInput.value = '';
+    if(!showPrint && printInput) printInput.value = '';
+  }
+  product.addEventListener('change', updateConditional);
+  updateConditional();
+
+  function showStatus(type, html){
+    statusBox.className = 'qf-status show ' + type;
+    statusBox.innerHTML = html;
+  }
+  function val(id){ var el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = val('qf-name');
+    var email = val('qf-email');
+    var prod = product.value || '';
+    var country = val('qf-country');
+    if(!name || !email || !prod || !country){
+      showStatus('err', '<b>Bitte füllen Sie die Pflichtfelder aus:</b> Name, E-Mail-Adresse, „Was brauchen Sie?“ und Lieferland.');
+      return;
+    }
+    if(email.indexOf('@') === -1 || email.indexOf('.') === -1){
+      showStatus('err', '<b>Bitte prüfen Sie Ihre E-Mail-Adresse</b> — damit wir Ihnen das Angebot senden können.');
+      return;
+    }
+    var lines = [];
+    lines.push('M&L Swim Tailor — Angebotsanfrage (Formular, deutsche Seite)');
+    lines.push('Produkt: ' + prod);
+    if(val('qf-design')) lines.push('Design: ' + val('qf-design'));
+    if(val('qf-printname')) lines.push('Name für den Druck: ' + val('qf-printname'));
+    if(val('qf-size')) lines.push('Größe & Passform: ' + val('qf-size'));
+    lines.push('Menge: ' + (val('qf-qty') || '1'));
+    lines.push('Lieferland: ' + country);
+    if(val('qf-extra')) lines.push('Noch etwas: ' + val('qf-extra'));
+    lines.push('Design-/Logo-Datei: wird angehängt, wenn auf unsere E-Mail geantwortet wird.');
+    var message = lines.join('\n');
+
+    submitBtn.disabled = true;
+    var originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Wird gesendet …';
+    statusBox.className = 'qf-status';
+    statusBox.innerHTML = '';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        company: '',
+        phone_wechat: '',
+        country: country,
+        language: 'Deutsch',
+        message: message,
+        source: 'swim-shop-request'
+      })
+    }).then(function(res){
+      if(!res.ok){ throw new Error('HTTP ' + res.status); }
+      showStatus('ok', '<b>Vielen Dank — Ihre Anfrage ist eingegangen.</b> Wir antworten an <b>' + email.replace(/</g,'&lt;') + '</b> mit einer Design-Vorschau und einem Gesamtbetrag, in der Regel innerhalb von 1–2 Tagen. Sie zahlen noch nichts.');
+      form.reset();
+      var qty = document.getElementById('qf-qty');
+      if(qty) qty.value = '1';
+      updateConditional();
+    }).catch(function(){
+      var subject = encodeURIComponent('Angebotsanfrage — M&L Swim Tailor');
+      var body = encodeURIComponent('Name: ' + name + '\nE-Mail: ' + email + '\n\n' + message);
+      showStatus('err', '<b>Das Senden hat leider nicht geklappt.</b> Ihre Angaben bleiben hier im Formular stehen — nichts ist verloren. Bitte senden Sie uns dieselben Angaben stattdessen per E-Mail an <a href="mailto:mlswimtailor@proton.me?subject=' + subject + '&amp;body=' + body + '">mlswimtailor@proton.me</a> — gleiches Angebot, gleiche Antwort.');
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    });
+  });
+})();
+</script>
 </body>
 </html>
