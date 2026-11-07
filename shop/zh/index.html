@@ -222,6 +222,28 @@
   table.rates td:last-child,table.rates th:last-child{text-align:right;font-weight:800;white-space:nowrap}
   .panel .note{margin-top:12px;font-size:13.5px}
 
+  /* Quote request form */
+  .quote-form-wrap{background:var(--surface);border:2px solid var(--teal);border-radius:24px;padding:30px;box-shadow:var(--shadow)}
+  .quote-form-wrap h3{font-size:22px;font-family:"Archivo",sans-serif}
+  .quote-form-wrap .qf-sub{color:var(--ink-2);font-size:15px;margin-top:6px;max-width:62ch}
+  .quote-form{margin-top:22px;display:grid;gap:16px}
+  .quote-form label{font-size:14px;font-weight:700;display:block}
+  .quote-form label .opt{font-weight:500;color:var(--ink-2);font-size:13px}
+  .quote-form input,.quote-form select,.quote-form textarea{width:100%;margin-top:6px;padding:12px 13px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-size:15.5px;font-family:inherit;line-height:1.5}
+  .quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+  .quote-form textarea{min-height:96px;resize:vertical}
+  .qf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:600px){ .qf-row{grid-template-columns:1fr} .quote-form-wrap{padding:22px 18px} }
+  .qf-note{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+  .form-status{display:none;border-radius:12px;padding:15px 17px;font-size:15px;line-height:1.6}
+  .form-status.show{display:block}
+  .form-status.ok{background:var(--surface-2);border:1.5px solid var(--teal);color:var(--ink)}
+  .form-status.err{background:var(--gold-bg);border:1.5px solid var(--gold);color:var(--ink)}
+  .form-status a{font-weight:700;word-break:break-all}
+  .email-alt{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px;font-size:15px;color:var(--ink-2);line-height:1.65}
+  .email-alt b{color:var(--ink)}
+  .email-alt a{font-weight:700;word-break:break-all}
+
   /* Email example */
   .email-example{margin-top:28px;background:var(--surface);border:1.5px dashed var(--teal);border-radius:16px;padding:24px}
   .email-example-head{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap}
@@ -400,22 +422,13 @@
         <h2>五個步驟，絕無意外收費</h2>
       </div>
       <div class="flow">
-        <div class="flow-step"><div class="n">1</div><h3>選擇並發送查詢</h3><p>在下方商店選好泳帽、設計或泳巾 — 以及尺碼 — 然後以電郵把查詢發給我們。你毋須在這裡附上任何檔案。</p></div>
+        <div class="flow-step"><div class="n">1</div><h3>選擇並發送查詢</h3><p>在下方商店選好泳帽、設計或泳巾 — 以及尺碼 — 然後用索取報價表格或電郵把查詢發給我們。你毋須在這裡附上任何檔案。</p></div>
         <div class="flow-step"><div class="n">2</div><h3>收到報價</h3><p>我們會估算連運費在內的總成本，並以電郵把報價發給你。</p></div>
-        <div class="flow-step"><div class="n">3</div><h3>接受、付款，並在同一電郵串回覆</h3><p>如果你接受報價，請回覆我們的電郵，附上你的訂購要求。付清報價總額後，只需在同一個電郵串回覆，附上付款收據、PO 編號及付款資料。當你回覆我們的電郵時，可以一併附上你的設計或標誌檔案。</p></div>
+        <div class="flow-step"><div class="n">3</div><h3>確認並付款</h3><p>確認設計預覽圖和報價總額後，按報價電郵內的指示付款 — 付款及收據安排見下方「運送及付款」。回覆該電郵時，可一併附上你的設計或標誌檔案。</p></div>
         <div class="flow-step"><div class="n">4</div><h3>我們確認送貨日期</h3><p>收到訂單後，我們會用 1–2 天與設計及生產團隊商討，並確認你的送貨日期範圍。</p></div>
         <div class="flow-step"><div class="n">5</div><h3>收貨</h3><p>專為你製作、經人手檢查，並送到府上 — 一般需時 3–4 星期。寄出時我們會以電郵通知你。</p></div>
       </div>
-      <div class="how-detail">
-        <h3>流程說明</h3>
-        <ol>
-          <li><b>我們估算連運費在內的總成本，並以電郵把報價發給你。</b></li>
-          <li><b>如果你接受，請回覆我們的電郵</b>，附上你的訂購要求。<b>付款後，請在同一個電郵串回覆</b>，附上付款收據、你的 <b>PO 編號</b>（我們會在你下單後以電郵發給你）及<b>付款資料</b> — 就這麼簡單。</li>
-          <li><b>收到訂單後</b>，我們會用 <b>1–2 天</b>與設計及生產團隊商討，並<b>確認你的送貨日期範圍</b>。</li>
-          <li><b>一般送貨時間為 3–4 星期，送到府上。</b></li>
-        </ol>
-        <p><b>趕時間？</b> 如果你想使用我們的特快送貨服務，請告訴我們。所有標準運費報價均以一般送貨為準。</p>
-      </div>
+      <p class="flow-note"><b>趕時間？</b> 如果你想使用我們的特快送貨服務，請告訴我們。所有標準運費報價均以一般送貨為準。</p>
     </div>
   </section>
 
@@ -628,7 +641,7 @@
           <div><b>1 · 先發送查詢</b>告訴我們這是團隊訂單、大約需要多少件，並留下你的電郵地址。</div>
           <div><b>2 · 我們以電郵回覆</b>請留意我們寄到你所提供地址的電郵回覆。</div>
           <div><b>3 · 回覆並附上設計檔案</b>回覆該電郵，附上你的設計或標誌檔案，以及顏色、名字、尺碼和數量。</div>
-          <div><b>4 · 收到並確認報價</b>我們會確認報價，附上預覽圖、你的 PO 編號和一個總額 — 產品 + 運費。確認後，付清已確認的總額，然後在同一個電郵串回覆，附上付款收據及付款資料。</div>
+          <div><b>4 · 收到並確認報價</b>我們會確認報價，附上預覽圖、你的 PO 編號和一個總額 — 產品 + 運費。確認後按報價電郵內的指示付款，安排見「運送及付款」。</div>
           <div><b>5 · 我們下單及寄出</b>製作完成、經人手檢查，並送到府上 — 一般需時 3–4 星期。</div>
         </div>
         <a class="btn btn-primary" href="#request">索取團隊報價</a>
@@ -674,24 +687,71 @@
       <div class="section-head">
         <p class="eyebrow">索取報價</p>
         <h2>索取報價</h2>
-        <p>如需索取報價，請電郵至 <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a></p>
-        <p style="margin-top:6px">付款後，請回覆我們的電郵，並附上你的付款收據及 PO 編號。</p>
-        <p style="margin-top:6px">所有價格如上列 — 最終總額（產品 + 運費）會在報價電郵中確認。</p>
+        <p>話畀我哋知你想要咩，我哋會用電郵回覆設計預覽圖同一個總額 — 產品 + 運費 — 通常 1–2 日內回覆。呢一步唔使付款住；所有價格如上列，最終總額會在報價電郵中確認。</p>
       </div>
 
-      <div class="email-example" aria-label="電郵查詢範例">
-        <div class="email-example-head">
-          <h3 style="font-size:18px;margin:0">電郵查詢範例：</h3>
-        </div>
-        <div class="email-example-body"><span class="ex-title">你的訂單摘要 — 以下文字會原封不動放進你的電郵</span>
+      <div class="quote-form-wrap">
+        <h3>索取報價表格</h3>
+        <p class="qf-sub">填好以下資料並發送，我哋會按你留下的電郵回覆報價。毋須上載檔案 — 回覆我哋電郵時，再附上你的標誌或設計檔案即可。</p>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div class="qf-row">
+            <label>你的姓名 *
+              <input type="text" id="qName" name="name" autocomplete="name" required placeholder="例如：陳小明">
+            </label>
+            <label>電郵地址 *
+              <input type="email" id="qEmail" name="email" autocomplete="email" required placeholder="you@example.com">
+            </label>
+          </div>
+          <label>你需要甚麼？ *
+            <select id="qProduct" name="product" required>
+              <option value="無縫競速泳帽（可印名）— 每頂 HK$104">無縫競速泳帽（可印名）— 每頂 HK$104</option>
+              <option value="Designer 泳帽 2026 限量版 — 每頂 HK$139">Designer 泳帽 2026 限量版 — 每頂 HK$139</option>
+              <option value="盲盒 — 5 頂隨機 Designer 泳帽 — 每盒 HK$622">盲盒 — 5 頂隨機 Designer 泳帽 — 每盒 HK$622</option>
+              <option value="快乾泳巾 — HK$139 起">快乾泳巾 — HK$139 起</option>
+              <option value="團隊 / 泳會訂單">團隊 / 泳會訂單</option>
+              <option value="其他 / 未肯定">其他 / 未肯定</option>
+            </select>
+          </label>
+          <label id="qDesignWrap" class="is-hidden">設計 <span class="opt">— 設計名稱、隊徽或顏色</span>
+            <input type="text" id="qDesign" name="design" placeholder="例如：水底魚世界／我哋泳會嘅藍白色隊徽">
+          </label>
+          <label id="qPrintWrap">要印的名字 / 隊名 <span class="opt">— 請填準確拼寫，我哋會照你確認嘅內容印刷</span>
+            <input type="text" id="qPrint" name="print_name" placeholder="例如：Marcus Yu">
+          </label>
+          <div class="qf-row">
+            <label>尺碼及剪裁
+              <select id="qSize" name="size">
+                <option value="成人 — 標準剪裁">成人 — 標準剪裁</option>
+                <option value="成人 — 長髮剪裁">成人 — 長髮剪裁</option>
+                <option value="成人 — 特大空間剪裁">成人 — 特大空間剪裁</option>
+                <option value="兒童 — 標準剪裁">兒童 — 標準剪裁</option>
+                <option value="兒童 — 長髮剪裁">兒童 — 長髮剪裁</option>
+                <option value="泳巾 — Small 35 × 75 cm">泳巾 — Small 35 × 75 cm</option>
+                <option value="泳巾 — Medium 70 × 140 cm">泳巾 — Medium 70 × 140 cm</option>
+                <option value="泳巾 — Large 80 × 180 cm">泳巾 — Large 80 × 180 cm</option>
+                <option value="未肯定 — 請幫我建議">未肯定 — 請幫我建議</option>
+              </select>
+            </label>
+            <label>數量
+              <input type="number" id="qQty" name="quantity" min="1" step="1" value="1">
+            </label>
+          </div>
+          <label>送貨國家 / 地區
+            <input type="text" id="qCountry" name="country" autocomplete="country-name" placeholder="例如：香港">
+          </label>
+          <label>其他補充 <span class="opt">— 選填</span>
+            <textarea id="qNotes" name="notes" placeholder="趕住用？想要混合設計？喺度話畀我哋知。"></textarea>
+          </label>
+          <p class="qf-note">發送即代表你同意我哋用電郵回覆你嘅報價查詢。我哋只會用你嘅資料處理呢次查詢。</p>
+          <div>
+            <button type="submit" class="btn btn-primary" id="qSubmit" style="font-size:16px;padding:15px 30px">發送索取報價</button>
+          </div>
+          <div class="form-status" id="qStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
 
-M&amp;L Swim Tailor — 訂購查詢
-產品：無縫競速泳帽 — 每頂 HK$104
-泳帽尺碼及剪裁：成人 — 標準剪裁
-數量：1
-設計 / 標誌檔案：我會在回覆你的電郵時附上。
-
-請以電郵回覆，讓我可以發送設計檔案，然後以設計預覽圖及我的總額（產品 + 運費）確認我的報價。</div>
+      <div class="email-alt">
+        <b>鍾意用電郵？</b> 直接寫去 <a href="mailto:mlswimtailor@proton.me">mlswimtailor@proton.me</a> 就可以 — 一樣會收到報價同回覆。電郵入面請寫明產品、尺碼及剪裁、數量同送貨地區；設計或標誌檔案可以直接附上，或者等回覆時再附。
       </div>
     </div>
   </section>
@@ -722,7 +782,6 @@ M&amp;L Swim Tailor — 訂購查詢
         <details><summary>運費幾多？</summary><p>視乎你的目的地地區及包裹重量。一頂泳帽的參考運費見上方運送部分；你的確實收費會在報價中確認，作為一個總額的一部分 — 產品 + 運費。</p></details>
         <details><summary>幾時付款？點樣付？</summary><p>要等你確認設計預覽圖及報價之後才付款。我們的付款資料會隨已確認的報價以電郵發給你。付款後，只需在同一個電郵串回覆，附上付款收據、你的 PO 編號及付款資料。</p></details>
         <details><summary>你們接受哪些付款方式？</summary><p>我們接受轉數快（FPS）。付款詳情會隨已確認的報價以電郵發送給你。</p></details>
-        <details><summary>付款後點樣發送收據？</summary><p>付款後，請回覆我們的電郵，並附上你的付款收據及 PO 編號。</p></details>
         <details><summary>印名字或標誌需要提供甚麼？</summary><p>印名字：請在查詢時提供準確拼寫。印標誌：一份清晰檔案（PNG、PDF 或向量格式最好） — 只需在回覆我們電郵時附上即可。我們最多可印 5 種顏色，而你必須先確認視覺預覽圖。請仔細核對拼寫：我們會完全按你確認的內容印刷。</p></details>
         <details><summary>套裝可唔可以混合設計？</summary><p>請在查詢時提出 — 大多數組合我們都可以在報價中確認混合套裝，價格與該款泳帽的套裝價相同。</p></details>
         <details><summary>訂製產品可唔可以退貨？</summary><p>個人化產品是專為你製作的，因此不能因改變主意而退貨。如果貨品有任何損壞，或與你確認的預覽圖不符，請告訴我們，我們會以更換方式處理好。</p></details>
@@ -740,6 +799,92 @@ M&amp;L Swim Tailor — 訂購查詢
   </footer>
 </main>
 
+<script>
+(function(){
+  var form = document.getElementById('quoteForm');
+  if(!form) return;
+  var product = document.getElementById('qProduct');
+  var designWrap = document.getElementById('qDesignWrap');
+  var printWrap = document.getElementById('qPrintWrap');
+  var status = document.getElementById('qStatus');
+  var submitBtn = document.getElementById('qSubmit');
+  var ENDPOINT = 'https://gf6db9d70aa6028-freelanceenq.adb.ap-singapore-1.oraclecloudapps.com/ords/admin/enquiries/submit';
 
+  function syncConditional(){
+    var i = product.selectedIndex;
+    var showDesign = (i===1 || i===2 || i===3 || i===4);
+    var showPrint = (i===0);
+    designWrap.classList.toggle('is-hidden', !showDesign);
+    printWrap.classList.toggle('is-hidden', !showPrint);
+  }
+  product.addEventListener('change', syncConditional);
+  syncConditional();
+
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = val('qName');
+    var email = val('qEmail');
+    if(!name || !email || email.indexOf('@') < 1){
+      status.className = 'form-status show err';
+      status.innerHTML = '請填寫你的姓名和有效的電郵地址，我哋先可以回覆報價。你的資料已保留在表格內。';
+      return;
+    }
+    var lines = [];
+    lines.push('M&L Swim Tailor — 索取報價（網頁表格）');
+    lines.push('產品：' + product.value);
+    var design = val('qDesign');
+    if(design && !designWrap.classList.contains('is-hidden')) lines.push('設計：' + design);
+    var printName = val('qPrint');
+    if(printName && !printWrap.classList.contains('is-hidden')) lines.push('要印的名字 / 隊名：' + printName);
+    lines.push('尺碼及剪裁：' + val('qSize'));
+    lines.push('數量：' + (val('qQty') || '1'));
+    var country = val('qCountry');
+    if(country) lines.push('送貨國家 / 地區：' + country);
+    var notes = val('qNotes');
+    if(notes) lines.push('其他補充：' + notes);
+    lines.push('設計 / 標誌檔案：客人會在回覆報價電郵時附上。');
+
+    var payload = {
+      name: name,
+      email: email,
+      company: '',
+      phone_wechat: '',
+      country: country,
+      language: 'zh-Hant',
+      message: lines.join('\n'),
+      source: 'swim-shop-request'
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '發送中…';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      if(res.ok){
+        status.className = 'form-status show ok';
+        status.innerHTML = '<b>已收到你的索取，謝謝！</b> 我哋會用電郵回覆設計預覽圖同一個總額（產品 + 運費），通常 1–2 日內回覆。呢一步唔使付款住。';
+        form.reset();
+        syncConditional();
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
+    }).catch(function(){
+      var body = encodeURIComponent(lines.join('\n') + '\n\n姓名：' + name + '\n電郵：' + email);
+      status.className = 'form-status show err';
+      status.innerHTML = '<b>未能發送。</b> 你的資料已保留在表格內，不用重新填寫。請改用電郵發送去 <a href="mailto:mlswimtailor@proton.me?subject=' + encodeURIComponent('M&L Swim Tailor — 索取報價') + '&body=' + body + '">mlswimtailor@proton.me</a> — 一樣會收到報價同回覆。';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = '發送索取報價';
+    });
+  });
+})();
+</script>
 </body>
 </html>
