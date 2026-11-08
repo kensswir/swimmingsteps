@@ -1,312 +1,622 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#087e8b">
-<meta name="description" content="SwimSteps helps children learn swimming skills at their own pace.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SwimSteps - Learn to Swim</title>
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon.svg" type="image/svg+xml">
 <style>
-:root{--blue:#087e8b;--navy:#123047;--light:#eaf8fb;--yellow:#ffd166;--green:#218c65;--muted:#64748b}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f8fb;color:var(--navy);line-height:1.55}
-header{background:linear-gradient(135deg,#087e8b,#25a9b7);color:white;padding:25px 18px 20px;border-radius:0 0 25px 25px}
-.wrap{max-width:850px;margin:auto;padding:0 15px}
-h1{font-size:29px;margin:0 0 5px}
-h2{font-size:22px;margin:0 0 10px}
-h3{font-size:18px;margin:0 0 8px}
-p{margin:7px 0}
-.small{font-size:13px;color:var(--muted)}
-header .small{color:#e3fbff}
-.stats{display:flex;gap:10px;margin-top:18px}
-.stat{background:#ffffff25;border:1px solid #ffffff40;border-radius:13px;padding:10px 13px;flex:1}
-.stat strong{display:block;font-size:22px}
-nav{display:flex;gap:8px;padding:15px 0;position:sticky;top:0;background:#f3f8fb;z-index:5}
-nav button{flex:1;border:0;border-radius:12px;padding:12px 5px;background:white;color:var(--navy);font-weight:700;font-size:14px;box-shadow:0 2px 8px #1230470c}
-nav button.active{background:var(--blue);color:white}
-main{padding-bottom:35px}
-.panel,.lesson,.product{background:white;border-radius:18px;padding:18px;margin:0 0 14px;box-shadow:0 3px 12px #1230470b}
-.hero{background:var(--light);border-radius:16px;padding:16px;margin-bottom:15px}
-.tag{display:inline-block;background:#e4f5ed;color:#176b4d;border-radius:30px;padding:4px 10px;font-size:12px;font-weight:700}
-.pill{display:inline-block;background:#fff1cc;color:#7b5700;border-radius:30px;padding:4px 10px;font-size:12px;font-weight:700}
-.lesson-head{display:flex;gap:12px;align-items:flex-start}
-.emoji{font-size:35px;line-height:1.2}
-.lesson-head>div:last-child{flex:1}
-ul,ol{padding-left:22px}
-li{margin:8px 0}
-.checklist{list-style:none;padding:0}
-.checklist li{margin:10px 0}
-.checklist label{display:flex;gap:10px;align-items:flex-start}
-input[type=checkbox]{width:20px;height:20px;accent-color:var(--blue);flex-shrink:0;margin-top:2px}
-button.primary,button.secondary,button.danger{border:0;border-radius:11px;padding:11px 15px;font-weight:700;cursor:pointer;font-size:14px}
-.primary{background:var(--blue);color:white}
-.secondary{background:var(--light);color:var(--blue)}
-.danger{background:#fff0f0;color:#a72d2d}
-button:disabled{opacity:.5}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
-.safety{background:#fff7e5;border-left:4px solid #f0b429;border-radius:10px;padding:12px;font-size:14px;margin-top:12px}
-.tip{background:#eef8f3;border-radius:10px;padding:12px;font-size:14px;margin-top:12px}
-.progress-bg{height:12px;background:#e5edf2;border-radius:20px;overflow:hidden}
-.progress-fill{height:100%;background:var(--green);width:0%;transition:width .2s}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
-.product{margin:0;padding:15px}
-.product .emoji{font-size:38px}
-.price{font-size:19px;font-weight:800}
-.badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.badge-card{background:#f5f9fc;border-radius:13px;padding:12px;text-align:center}
-.badge-card .emoji{font-size:28px}
-.badge-card.locked{opacity:.42}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
-.hidden{display:none!important}
-button:focus-visible,input:focus-visible{outline:3px solid #ffbd3f;outline-offset:2px}
-@media(min-width:600px){header{padding:32px 25px 24px}.wrap{padding:0 20px}.lesson,.panel{padding:22px}}
+  :root{
+    --teal:#0b6b7a; --teal-dark:#08525f; --teal-light:#e6f4f6;
+    --orange:#e4572e; --sand:#fff8f0; --ink:#1f2f36; --muted:#5a6b72;
+    --card:#ffffff; --line:#d7e8ea; --green:#2e7d5b; --amber:#fff3d6; --amber-line:#f0c96a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#eaf6f8 0%,#ffffff 420px);line-height:1.6;font-size:18px}
+  a{color:var(--teal)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px 48px}
+  header.hero{background:var(--teal);color:#fff;border-radius:0 0 28px 28px;padding:34px 22px 30px;text-align:center}
+  header.hero h1{margin:0 0 6px;font-size:2.1rem;line-height:1.15}
+  header.hero p{margin:8px auto 0;max-width:620px;font-size:1.05rem;opacity:.96}
+  header.hero .wave{font-size:2rem;line-height:1}
+  .pill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:5px 12px;font-size:.9rem;margin-top:14px}
+  .howto{margin:24px 0 6px;text-align:center}
+  .howto h2{font-size:1.15rem;margin:0 0 4px}
+  .howto p{margin:0 0 10px;color:var(--muted);font-size:.98rem}
+  .howto svg{width:100%;height:auto;max-width:820px;display:block;margin:0 auto}
+  .safety{background:var(--amber);border:2px solid var(--amber-line);border-radius:16px;padding:16px 18px;margin:22px 0}
+  .safety h2{margin:0 0 6px;font-size:1.15rem}
+  .safety p{margin:6px 0}
+  /* Accordions — the lessons */
+  .lessons{margin:10px 0 0}
+  details.lesson{background:var(--card);border:1px solid var(--line);border-radius:18px;margin:14px 0;overflow:hidden;scroll-margin-top:16px}
+  details.lesson[open]{border-color:var(--teal)}
+  details.lesson summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:center;padding:18px 18px;user-select:none}
+  details.lesson summary::-webkit-details-marker{display:none}
+  details.lesson summary .big{font-size:2rem;line-height:1;flex:none}
+  details.lesson summary .t{flex:1;min-width:0}
+  details.lesson summary .eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:800}
+  details.lesson summary h2{margin:2px 0 2px;font-size:1.35rem;line-height:1.25}
+  details.lesson summary p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.45}
+  details.lesson summary .chev{flex:none;width:34px;height:34px;border-radius:50%;background:var(--teal-light);color:var(--teal-dark);display:grid;place-items:center;font-weight:800;transition:transform .2s ease}
+  details.lesson[open ] summary .chev{transform:rotate(180deg)}
+  details.lesson summary .done-badge{display:none;flex:none;background:#eef7ee;color:var(--green);border-radius:999px;padding:3px 10px;font-size:.82rem;font-weight:800}
+  details.lesson.done summary .done-badge{display:inline-block}
+  .lesson-body{padding:0 18px 20px}
+  .lesson-body > p:first-child{margin-top:0}
+  .goal{background:var(--teal-light);border-radius:12px;padding:12px 14px;margin:14px 0}
+  .goal strong{color:var(--teal-dark)}
+  /* Nested dropdowns for Lesson 1 parts */
+  details.part{background:#f7fbfc;border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden}
+  details.part summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:center;padding:13px 14px;user-select:none}
+  details.part summary::-webkit-details-marker{display:none}
+  details.part summary h3{margin:0;font-size:1.08rem;flex:1}
+  details.part summary .count{color:var(--muted);font-size:.88rem;white-space:nowrap}
+  details.part summary .chev{flex:none;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--teal-dark);display:grid;place-items:center;font-weight:800;transition:transform .2s ease}
+  details.part[open ] summary .chev{transform:rotate(180deg)}
+  .part-body{padding:2px 14px 12px}
+  .note{color:var(--muted);font-size:.95rem;margin:6px 0 8px}
+  ul.check{list-style:none;margin:0;padding:0}
+  ul.check li{border-top:1px solid #eef4f5;padding:9px 0}
+  ul.check li:first-child{border-top:none}
+  ul.check label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:.98rem;line-height:1.45}
+  ul.check input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--teal)}
+  ul.check label span b{display:block}
+  ul.check label span small{color:var(--muted);font-size:.92rem}
+  ul.check li.done label span b{color:var(--green);text-decoration:line-through;text-decoration-thickness:1px}
+  ul.plain{margin:8px 0 0;padding-left:22px}
+  ul.plain li{margin:8px 0}
+  .tip{background:#eef7ee;border-left:5px solid var(--green);border-radius:10px;padding:12px 14px;margin:18px 0}
+  .tip strong{color:var(--green)}
+  .lesson-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid #eef4f5}
+  .btn{appearance:none;border:none;border-radius:999px;padding:11px 18px;font-size:1rem;font-weight:700;cursor:pointer;background:var(--teal);color:#fff}
+  .btn:hover{background:var(--teal-dark)}
+  .btn.ghost{background:#fff;color:var(--teal);border:2px solid var(--teal)}
+  .done-msg{color:var(--green);font-weight:700;display:none}
+  .done-msg.show{display:inline}
+  .back{font-size:.95rem}
+  /* Shop — just a link, nothing more */
+  .shop{background:var(--teal);color:#fff;border-radius:20px;padding:22px;margin:28px 0;text-align:center}
+  .shop h2{margin:0 0 6px;font-size:1.4rem}
+  .shop p{margin:6px 0;opacity:.97}
+  .shop a{color:#fff;font-weight:800}
+  .shop .shop-btn{display:inline-block;background:#fff;color:var(--teal-dark);border-radius:999px;padding:12px 20px;font-weight:800;text-decoration:none;margin-top:12px}
+  .shop .fine{font-size:.9rem;opacity:.9}
+  .journey{background:var(--sand);border:1px solid #f0dcc8;border-radius:20px;padding:22px 20px;margin:28px 0}
+  .journey h2{margin:0 0 6px;font-size:1.45rem}
+  .journey p{margin:6px 0}
+  .bar{height:14px;background:#e8ddd0;border-radius:999px;overflow:hidden;margin:12px 0}
+  .bar > div{height:100%;width:0%;background:var(--orange);border-radius:999px;transition:width .3s ease}
+  .journey .counts{font-weight:700}
+  .muted{color:var(--muted);font-size:.95rem}
+  /* Hero photo + coach intro */
+  .hero-img{margin:22px 0 0;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+  .hero-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+  .credit{font-size:.82rem;color:var(--muted);margin:6px 2px 0;text-align:center}
+  .credit a{color:var(--muted)}
+  .coach-intro{background:#fff;border:1px solid var(--line);border-left:6px solid var(--orange);border-radius:16px;padding:16px 18px;margin:22px 0}
+  .coach-intro h2{margin:0 0 6px;font-size:1.15rem}
+  .coach-intro p{margin:6px 0}
+  /* Movement-step cards */
+  .steps{display:grid;grid-template-columns:1fr;gap:14px;margin:16px 0}
+  @media(min-width:620px){.steps{grid-template-columns:1fr 1fr}}
+  .step-card{background:#f7fbfc;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .step-card img{display:block;width:100%;height:150px;object-fit:cover}
+  .step-card .step-body{padding:12px 14px}
+  .step-num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:1.1rem;margin-bottom:6px}
+  .step-card h4{margin:2px 0 4px;font-size:1.05rem;line-height:1.3}
+  .step-card p{margin:0;font-size:.95rem;color:var(--muted)}
+  .step-card .try{display:inline-block;margin-top:8px;background:var(--teal-light);color:var(--teal-dark);border-radius:999px;padding:3px 10px;font-size:.85rem;font-weight:700}
+  /* Breakdown diagrams + video links */
+  .diagram{background:#f7fbfc;border:1px solid var(--line);border-radius:16px;padding:14px;margin:16px 0}
+  .diagram h4{margin:0 0 8px;font-size:1.02rem}
+  .diagram svg{width:100%;height:auto;display:block}
+  .substeps{margin:10px 0 0;padding-left:22px}
+  .substeps li{margin:7px 0}
+  .substeps li b{color:var(--teal-dark)}
+  .yt-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:16px 0}
+  .yt-box h4{margin:0 0 4px;font-size:1.05rem}
+  .yt-box p{margin:6px 0;font-size:.96rem}
+  .yt-box a{font-weight:700}
+  .yt-box .watch-for{background:var(--teal-light);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:.95rem}
+  .coach-box{background:#eef7ee;border-left:5px solid var(--green);border-radius:10px;padding:12px 14px;margin:16px 0}
+  .coach-box strong{color:var(--green)}
+  .watchout{background:#fff3d6;border-left:5px solid #e8a100;border-radius:10px;padding:12px 14px;margin:16px 0}
+  .watchout strong{color:#7a5200}
+  footer{margin-top:28px;text-align:center;color:var(--muted);font-size:.95rem}
+  footer p{margin:6px 0}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div style="font-size:14px;font-weight:700;letter-spacing:1px">YOUR SWIMMING JOURNEY</div>
-    <h1>🏊 SwimSteps</h1>
-    <p>Small steps. Big confidence. Learn to swim at your own pace!</p>
-    <div class="stats">
-      <div class="stat"><strong id="headerCompleted">0/4</strong><span>Lessons completed</span></div>
-      <div class="stat"><strong id="headerBadges">0</strong><span>Badges earned</span></div>
-    </div>
-  </div>
-</header>
-
 <div class="wrap">
-<nav aria-label="Main navigation">
-  <button class="active" data-tab="learn">🏊 Learn</button>
-  <button data-tab="shop">🛍️ Shop <span id="cartCount"></span></button>
-  <button data-tab="progress">⭐ Progress</button>
-</nav>
 
-<main>
-<section id="learnSection">
-  <div class="hero">
-    <h2>Welcome, little swimmer! 🐬</h2>
+  <header class="hero">
+    <div class="wave">🐬</div>
+    <h1>Welcome, little swimmer!</h1>
     <p>Every swimmer learns differently. Take your time, practise with a trusted adult or qualified instructor, and celebrate every little step.</p>
-    <p class="small">There is no fixed lesson duration. One activity or lesson may take one session, two sessions, or more.</p>
+    <p>There is no fixed lesson duration. One activity or lesson may take one session, two sessions, or more.</p>
+    <span class="pill">💧 Take it slowly &nbsp;·&nbsp; practise together &nbsp;·&nbsp; celebrate every step</span>
+  </header>
+
+  <figure class="hero-img">
+    <img src="https://images.pexels.com/photos/6011945/pexels-photo-6011945.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A swimming instructor guiding a child learning to swim in an indoor pool" loading="lazy">
+    <figcaption class="credit">Photo by Tima Miroshnichenko on <a href="https://www.pexels.com/photo/woman-teaching-a-child-on-how-to-swim-6011945/">Pexels</a> — free to use.</figcaption>
+  </figure>
+
+  <div class="coach-intro">
+    <h2>👩‍🏫 For the young coach — and the first learner</h2>
+    <p><strong>Coaching a first learner?</strong> Open one lesson at a time. Show the picture, try one step together, tick it off, and celebrate. That is the whole lesson.</p>
+    <p><strong>Learning for the first time?</strong> Follow the big numbers, 1 → 2 → 3 → 4. There is no rush — one step, one session, or more.</p>
   </div>
 
-  <article class="lesson" id="lesson1">
-    <div class="lesson-head">
-      <div class="emoji">💧</div>
-      <div>
-        <span class="tag">LESSON 1</span>
+  <div class="howto" aria-label="How to start swimming">
+    <h2>How to start swimming</h2>
+    <p>Four little steps, in order. Tap a lesson below to open it.</p>
+    <svg viewBox="0 0 820 170" role="img" aria-label="Step 1 Water Confidence, step 2 Calm Breathing, step 3 Floating and Kicking, step 4 First Swimming Strokes">
+      <defs>
+        <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#e6f4f6"/><stop offset="1" stop-color="#bfe6ec"/>
+        </linearGradient>
+      </defs>
+      <!-- connecting path -->
+      <path d="M100 62 H205 M300 62 H405 M500 62 H605" stroke="#0b6b7a" stroke-width="3" stroke-dasharray="6 6" fill="none" opacity=".55"/>
+      <!-- step 1 -->
+      <g><circle cx="100" cy="62" r="42" fill="#0b6b7a"/><text x="100" y="74" text-anchor="middle" font-size="30">💧</text><text x="100" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">1 · Water</text><text x="100" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">Confidence</text></g>
+      <!-- step 2 -->
+      <g><circle cx="305" cy="62" r="42" fill="#0b6b7a"/><text x="305" y="74" text-anchor="middle" font-size="30">🌬️</text><text x="305" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">2 · Calm</text><text x="305" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">Breathing</text></g>
+      <!-- step 3 -->
+      <g><circle cx="510" cy="62" r="42" fill="#0b6b7a"/><text x="510" y="74" text-anchor="middle" font-size="30">⭐</text><text x="510" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">3 · Floating</text><text x="510" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">&amp; Kicking</text></g>
+      <!-- step 4 -->
+      <g><circle cx="715" cy="62" r="42" fill="#e4572e"/><text x="715" y="74" text-anchor="middle" font-size="30">🐬</text><text x="715" y="122" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">4 · First</text><text x="715" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#08525f">Strokes</text></g>
+      <!-- waves -->
+      <path d="M0 158 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0" stroke="#0b6b7a" stroke-width="3" fill="none" opacity=".35"/>
+    </svg>
+  </div>
+
+  <div class="safety" role="note">
+    <h2>🛟 Water safety comes first</h2>
+    <p>An adult must actively supervise the child and stay within arm’s reach. Never leave a child alone in or near water. Floatation aids do not replace supervision.</p>
+    <p><strong>Never force submersion or practise breath-holding competitions.</strong></p>
+  </div>
+
+  <div class="lessons">
+  <!-- LESSON 1 -->
+  <details class="lesson" id="lesson-1" open>
+    <summary>
+      <div class="big">💧</div>
+      <div class="t">
+        <div class="eyebrow">Lesson 1</div>
         <h2>Water Confidence</h2>
         <p>Become comfortable with water, practise gentle movements, and begin exploring floating with support.</p>
-        <span class="pill">Learn at your own pace</span>
+      </div>
+      <span class="done-badge">✓ Done</span>
+      <span class="chev">⌄</span>
+    </summary>
+    <div class="lesson-body">
+      <p>Learn at your own pace</p>
+      <div class="goal"><strong>🎯 Learning goal</strong><br>Feel more comfortable in the water, get the face wet when ready, blow bubbles, and try simple movements with support.</div>
+
+      <h3 style="margin:18px 0 4px">👀 Watch, then try — the movement steps</h3>
+      <p class="note">Look at each picture together, then try that one step. Tick it off below when you have tried it.</p>
+      <div class="steps">
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/346779/pexels-photo-346779.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child in a pool wearing blue goggles, at the water's edge" loading="lazy">
+          <div class="step-body"><span class="step-num">1</span><h4>Climb in, slowly</h4><p>Use the pool steps, with an adult close beside you. Hold the rail if there is one.</p><span class="try">✋ Try this: climb safely down the steps</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/34193272/pexels-photo-34193272/free-photo-of-child-swimming-joyfully-in-a-sparkling-pool.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child swimming underwater in sparkling blue water" loading="lazy">
+          <div class="step-body"><span class="step-num">2</span><h4>Face wet, then bubbles</h4><p>A little water on the cheeks first, then the top of the head — only when ready. Blow bubbles gently at the surface.</p><span class="try">✋ Try this: get your face wet, then blow bubbles</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/346776/pexels-photo-346776.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child playing and swimming in a pool" loading="lazy">
+          <div class="step-body"><span class="step-num">3</span><h4>Arms like an aeroplane</h4><p>Stretch your arms gently out to the sides, then make slow, gentle circles — round and round.</p><span class="try">✋ Try this: arms out, then twirl your arms</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/8688530/pexels-photo-8688530.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A boy floating peacefully on his back in a clear pool" loading="lazy">
+          <div class="step-body"><span class="step-num">4</span><h4>Float like a starfish</h4><p>With an adult or instructor supporting you, float on your front, then on your back — arms and legs relaxed, like a starfish.</p><span class="try">✋ Try this: float like a starfish, with support</span></div>
+        </div>
+      </div>
+      <div class="coach-box"><strong>👩‍🏫 Coach tip</strong><br>Let the child set the pace. Stop, take a break, or repeat an activity whenever needed — there is no need to rush.</div>
+      <div class="watchout"><strong>⚠️ Watch out</strong><br>Never force the face underwater. Floating needs close adult support — a qualified instructor should guide it.</div>
+
+      <div class="diagram">
+        <h4>🔍 Break it down — Lesson 1 in small steps</h4>
+        <svg viewBox="0 0 720 120" role="img" aria-label="Steps: climb the steps, face wet, head wet, arms out, blow bubbles, starfish float">
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#08525f" text-anchor="middle">
+            <rect x="6" y="18" width="104" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="58" y="40">1 · Climb</text><text x="58" y="58">the steps</text>
+            <text x="122" y="50" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="134" y="18" width="104" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="186" y="40">2 · Face</text><text x="186" y="58">wet</text>
+            <text x="250" y="50" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="262" y="18" width="104" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="314" y="40">3 · Head</text><text x="314" y="58">wet</text>
+            <text x="378" y="50" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="390" y="18" width="104" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="442" y="40">4 · Arms</text><text x="442" y="58">out</text>
+            <text x="506" y="50" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="518" y="18" width="88" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="562" y="40">5 · Blow</text><text x="562" y="58">bubbles</text>
+            <text x="618" y="50" font-size="18" fill="#0b6b7a">→</text>
+          </g>
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+            <rect x="630" y="18" width="84" height="52" rx="12" fill="#e4572e"/><text x="672" y="40">6 · Starfish</text><text x="672" y="58">float ⭐</text>
+          </g>
+          <text x="360" y="102" text-anchor="middle" font-size="13" fill="#5a6b72">One step at a time — stop, rest, or repeat any step.</text>
+        </svg>
+        <p style="margin:8px 0 0;font-size:.95rem;color:var(--muted)"><strong>Blow bubbles, broken down:</strong> big breath in → mouth near the surface → blow out slowly → watch the bubbles → lift your head, breathe in, and try again.</p>
+        <p style="margin:6px 0 0;font-size:.95rem;color:var(--muted)"><strong>Starfish float, broken down:</strong> instructor supports your body and head → relax your arms and legs → spread out like a starfish → stay calm and still.</p>
+      </div>
+
+      <div class="yt-box">
+        <h4>🎥 Watch and learn — Lesson 1</h4>
+        <p><a href="https://www.youtube.com/watch?v=lZ9DGDMpRv0" target="_blank" rel="noopener">Teaching a 3 Year Old to Swim | Simple Swim Lesson Parents Can Do at Home</a> — Baby Swim (@baby_swim), YouTube (free to watch).</p>
+        <p class="watch-for"><strong>What to watch for:</strong> the five stages in order — water familiarisation, breath control, floating, then kicking and arms. Watch how the teacher never rushes Rose, and celebrates every small win. Chapters: Water Familiarisation 1:40, Breath Control 3:05, Floating 8:00, Propulsion 15:27.</p>
+        <p class="muted">Watch together first, then try one step in the pool — with an adult beside you.</p>
+      </div>
+
+      <details class="part" open>
+        <summary><h3>Part A: Getting comfortable</h3><span class="count" id="part-a-count">0 of 6 tried</span><span class="chev">⌄</span></summary>
+        <div class="part-body">
+          <p class="note">Try these activities gently. Stop, take a break, or repeat an activity whenever needed.</p>
+          <ul class="check" data-lesson="1">
+            <li><label><input type="checkbox" data-activity="1-1"><span><b>Climb safely down the steps.</b><small>Use the pool steps with an adult or instructor close beside you. Hold the rail if available.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-2"><span><b>Get your face wet.</b><small>Start with a little water on your cheeks. There is no need to rush.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-3"><span><b>Get the top of your head wet.</b><small>Use your hand or a little water when you feel ready.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-4"><span><b>Put your arms out.</b><small>Stretch your arms gently out to the sides like an aeroplane.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-5"><span><b>Twirl your arms round and round.</b><small>Make slow, gentle circles with your arms.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-6"><span><b>Blow bubbles.</b><small>With an adult guiding you, blow gently onto the water or with your mouth near the surface. Never force your face underwater.</small></span></label></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="part">
+        <summary><h3>Part B: Moving and floating</h3><span class="count" id="part-b-count">0 of 6 tried</span><span class="chev">⌄</span></summary>
+        <div class="part-body">
+          <p class="note">These activities require close adult support. A qualified swimming instructor should guide floating practice.</p>
+          <ul class="check" data-lesson="1">
+            <li><label><input type="checkbox" data-activity="1-7"><span><b>Bub up and down (bounce gently).</b><small>With support in shallow water, gently bend and straighten your knees if comfortable.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-8"><span><b>Float like a starfish on your front.</b><small>Practise only with an instructor or adult providing appropriate hands-on support.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-9"><span><b>Float like a starfish on your back.</b><small>Relax your arms and legs while the instructor supports your body and head.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-10"><span><b>Float like a ball.</b><small>With instructor support, gently curl into a ball shape. Do not hold your breath for a challenge.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-11"><span><b>Touch your toes and say hello.</b><small>Practise reaching for your toes while safely supported, as guided by the instructor.</small></span></label></li>
+            <li><label><input type="checkbox" data-activity="1-12"><span><b>Do gentle leg kicks.</b><small>Hold the pool edge or use instructor-approved support and practise small, relaxed kicks.</small></span></label></li>
+          </ul>
+        </div>
+      </details>
+      <p class="muted"><span id="l1-count">0 of 12 activities tried</span> — tick an activity when you have tried it. You can repeat it as often as you like.</p>
+
+      <div class="tip"><strong>💚 Parent tip</strong><br>Praise effort, not speed. If a child feels worried, return to an activity they already enjoy and try again another day.</div>
+
+      <div class="lesson-foot">
+        <button class="btn" type="button" data-complete="1">Mark Lesson 1 complete</button>
+        <span class="done-msg" id="done-1">⭐ Lesson 1 complete — well done!</span>
+        <a class="back" href="#lesson-2">Next: Lesson 2 Calm Breathing →</a>
       </div>
     </div>
-    <div class="tip"><strong>🎯 Learning goal</strong><br>Feel more comfortable in the water, get the face wet when ready, blow bubbles, and try simple movements with support.</div>
-    <h3 style="margin-top:20px">Part A: Getting comfortable</h3>
-    <p class="small">Try these activities gently. Stop, take a break, or repeat an activity whenever needed.</p>
-    <ul class="checklist" id="activitiesA">
-      <li><label><input type="checkbox" data-activity="1-0"> <span><strong>Climb safely down the steps.</strong><br>Use the pool steps with an adult or instructor close beside you. Hold the rail if available.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-1"> <span><strong>Get your face wet.</strong><br>Start with a little water on your cheeks. There is no need to rush.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-2"> <span><strong>Get the top of your head wet.</strong><br>Use your hand or a little water when you feel ready.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-3"> <span><strong>Put your arms out.</strong><br>Stretch your arms gently out to the sides like an aeroplane.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-4"> <span><strong>Twirl your arms round and round.</strong><br>Make slow, gentle circles with your arms.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-5"> <span><strong>Blow bubbles.</strong><br>With an adult guiding you, blow gently onto the water or with your mouth near the surface. Never force your face underwater.</span></label></li>
-    </ul>
+  </details>
 
-    <h3 style="margin-top:22px">Part B: Moving and floating</h3>
-    <p class="small">These activities require close adult support. A qualified swimming instructor should guide floating practice.</p>
-    <ul class="checklist" id="activitiesB">
-      <li><label><input type="checkbox" data-activity="1-6"> <span><strong>Bub up and down (bounce gently).</strong><br>With support in shallow water, gently bend and straighten your knees if comfortable.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-7"> <span><strong>Float like a starfish on your front.</strong><br>Practise only with an instructor or adult providing appropriate hands-on support.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-8"> <span><strong>Float like a starfish on your back.</strong><br>Relax your arms and legs while the instructor supports your body and head.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-9"> <span><strong>Float like a ball.</strong><br>With instructor support, gently curl into a ball shape. Do not hold your breath for a challenge.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-10"> <span><strong>Touch your toes and say hello.</strong><br>Practise reaching for your toes while safely supported, as guided by the instructor.</span></label></li>
-      <li><label><input type="checkbox" data-activity="1-11"> <span><strong>Do gentle leg kicks.</strong><br>Hold the pool edge or use instructor-approved support and practise small, relaxed kicks.</span></label></li>
-    </ul>
-    <div class="tip"><strong>💚 Parent tip</strong><br>Praise effort, not speed. If a child feels worried, return to an activity they already enjoy and try again another day.</div>
-    <div class="safety"><strong>🛟 Water safety comes first</strong><br>An adult must actively supervise the child and stay within arm’s reach. Never leave a child alone in or near water. Floatation aids do not replace supervision. Never force submersion or practise breath-holding competitions.</div>
-    <div class="actions">
-      <button class="primary" id="completeLesson1">✓ Mark Lesson 1 Complete</button>
-      <button class="secondary" id="resetLesson1">Reset activity checklist</button>
+  <!-- LESSON 2 -->
+  <details class="lesson" id="lesson-2">
+    <summary>
+      <div class="big">🌬️</div>
+      <div class="t">
+        <div class="eyebrow">Lesson 2</div>
+        <h2>Calm Breathing</h2>
+        <p>Learn relaxed breathing and become more comfortable around water.</p>
+      </div>
+      <span class="done-badge">✓ Done</span>
+      <span class="chev">⌄</span>
+    </summary>
+    <div class="lesson-body">
+      <h3 style="margin:18px 0 4px">👀 Watch, then try — the movement steps</h3>
+      <div class="steps">
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/6011945/pexels-photo-6011945.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A swimming instructor guiding a child in an indoor pool" loading="lazy">
+          <div class="step-body"><span class="step-num">1</span><h4>Breathe calmly, away from the water</h4><p>Slow, relaxed breathing first — on dry land, with no water to worry about.</p><span class="try">✋ Try this: calm breathing away from the water</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/9044049/pexels-photo-9044049.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A joyful child swimming underwater in a sunlit pool" loading="lazy">
+          <div class="step-body"><span class="step-num">2</span><h4>Blow bubbles at the surface</h4><p>With an instructor beside you, blow gently at the water surface — little bubbles, slow and calm.</p><span class="try">✋ Try this: blow bubbles at the water surface</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/346776/pexels-photo-346776.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child playing and swimming in a pool" loading="lazy">
+          <div class="step-body"><span class="step-num">3</span><h4>Face wet again, if needed</h4><p>If it feels tricky, go back a step — getting the face wet is always there to practise again.</p><span class="try">✋ Try this: return to getting the face wet</span></div>
+        </div>
+      </div>
+      <div class="coach-box"><strong>👩‍🏫 Coach tip</strong><br>Calm breathing comes before the water. If breathing is calm, the rest feels easier.</div>
+      <div class="watchout"><strong>⚠️ Watch out</strong><br>Never force a child to put their face underwater or hold their breath. Keep all practice supervised.</div>
+
+      <div class="diagram">
+        <h4>🔍 Break it down — the breathing cycle</h4>
+        <svg viewBox="0 0 720 110" role="img" aria-label="Breathing cycle: breathe in through the mouth, blow out slowly, bubbles, breathe in again">
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#08525f" text-anchor="middle">
+            <rect x="10" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="85" y="38">1 · Breathe in</text><text x="85" y="56">through mouth</text>
+            <text x="172" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="184" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="259" y="38">2 · Blow out</text><text x="259" y="56">slowly</text>
+            <text x="346" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="358" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="433" y="38">3 · Bubbles</text><text x="433" y="56">appear 🫧</text>
+            <text x="520" y="48" font-size="18" fill="#0b6b7a">→</text>
+          </g>
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+            <rect x="532" y="16" width="178" height="52" rx="12" fill="#e4572e"/><text x="621" y="38">4 · Lift head,</text><text x="621" y="56">breathe in again ↺</text>
+          </g>
+          <text x="360" y="96" text-anchor="middle" font-size="13" fill="#5a6b72">It is a circle — in, out, bubbles, in again. Practise it away from the water first.</text>
+        </svg>
+        <ul class="substeps">
+          <li><b>Step 1 — Breathe in:</b> take a big, calm breath in through the mouth, away from the water first.</li>
+          <li><b>Step 2 — Blow out slowly:</b> lower the mouth to the surface and blow the air out gently — no rushing.</li>
+          <li><b>Step 3 — Watch the bubbles:</b> the air makes bubbles in the water, just like blowing soap bubbles.</li>
+          <li><b>Step 4 — Lift and repeat:</b> lift your head, breathe in, and go again. If it feels tricky, return to getting the face wet.</li>
+        </ul>
+      </div>
+
+      <div class="yt-box">
+        <h4>🎥 Watch and learn — Lesson 2</h4>
+        <p><a href="https://www.youtube.com/watch?v=I8au1IBcVgc" target="_blank" rel="noopener">Teaching breath control: Blowing bubbles in swim lessons</a> — My Swim Guide, YouTube (free to watch).</p>
+        <p class="watch-for"><strong>What to watch for:</strong> the teacher takes a big, exaggerated breath in first, then blows out as the head lowers to the water — so the child can <em>see</em> the bubbles form. Try the same idea at home first with soap bubbles, then at the pool.</p>
+        <p class="muted">Watch together first, then try one slow breath at the water surface — with an instructor beside you.</p>
+      </div>
+      <div class="lesson-foot">
+        <button class="btn" type="button" data-complete="2">Mark Lesson 2 complete</button>
+        <span class="done-msg" id="done-2">⭐ Lesson 2 complete — well done!</span>
+        <a class="back" href="#lesson-3">Next: Lesson 3 Floating and Kicking →</a>
+      </div>
     </div>
-    <p class="small" id="lesson1Status" aria-live="polite"></p>
-  </article>
+  </details>
 
-  <article class="lesson">
-    <div class="lesson-head"><div class="emoji">🌬️</div><div><span class="tag">LESSON 2</span><h2>Calm Breathing</h2><p>Learn relaxed breathing and become more comfortable around water.</p></div></div>
-    <ul><li>Practise calm breathing away from the water first.</li><li>Blow bubbles at the water surface with an instructor.</li><li>Return to getting the face wet if needed.</li></ul>
-    <div class="safety">Never force a child to put their face underwater or hold their breath. Keep all practice supervised.</div>
-    <div class="actions"><button class="primary complete-button" data-lesson="2">Mark Lesson 2 Complete</button></div>
-  </article>
+  <!-- LESSON 3 -->
+  <details class="lesson" id="lesson-3">
+    <summary>
+      <div class="big">⭐</div>
+      <div class="t">
+        <div class="eyebrow">Lesson 3</div>
+        <h2>Floating and Kicking</h2>
+        <p>Build comfort with supported floating and gentle leg movements.</p>
+      </div>
+      <span class="done-badge">✓ Done</span>
+      <span class="chev">⌄</span>
+    </summary>
+    <div class="lesson-body">
+      <h3 style="margin:18px 0 4px">👀 Watch, then try — the movement steps</h3>
+      <div class="steps">
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/8688530/pexels-photo-8688530.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A boy floating peacefully in a clear pool" loading="lazy">
+          <div class="step-body"><span class="step-num">1</span><h4>Starfish float, relaxed</h4><p>A relaxed starfish position, with instructor support — arms and legs soft, body calm.</p><span class="try">✋ Try this: starfish float with support</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/346779/pexels-photo-346779.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child in a pool wearing blue goggles, holding the edge" loading="lazy">
+          <div class="step-body"><span class="step-num">2</span><h4>Gentle kicks at the edge</h4><p>Hold the pool edge and practise small, relaxed kicks — little splashes, not big ones.</p><span class="try">✋ Try this: gentle kicks holding the pool edge</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/6011945/pexels-photo-6011945.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A swimming instructor guiding a child in an indoor pool" loading="lazy">
+          <div class="step-body"><span class="step-num">3</span><h4>Repeat until it feels easy</h4><p>Repeat until the child feels comfortable — and the instructor agrees it is right to move on.</p><span class="try">✋ Try this: repeat, then check with your instructor</span></div>
+        </div>
+      </div>
+      <div class="coach-box"><strong>👩‍🏫 Coach tip</strong><br>Small, relaxed kicks beat big, fast ones. Comfort first — progress follows.</div>
+      <div class="watchout"><strong>⚠️ Watch out</strong><br>Floating and kicking practice must be closely supervised. Do not practise unsupported floating alone.</div>
 
-  <article class="lesson">
-    <div class="lesson-head"><div class="emoji">⭐</div><div><span class="tag">LESSON 3</span><h2>Floating and Kicking</h2><p>Build comfort with supported floating and gentle leg movements.</p></div></div>
-    <ul><li>Practise a relaxed starfish position with instructor support.</li><li>Try gentle kicks while holding the pool edge.</li><li>Repeat until the child feels comfortable and the instructor agrees it is appropriate to progress.</li></ul>
-    <div class="safety">Floating and kicking practice must be closely supervised. Do not practise unsupported floating alone.</div>
-    <div class="actions"><button class="primary complete-button" data-lesson="3">Mark Lesson 3 Complete</button></div>
-  </article>
+      <div class="diagram">
+        <h4>🔍 Break it down — floating, step by step</h4>
+        <svg viewBox="0 0 720 110" role="img" aria-label="Floating: relax, arms out, legs out, starfish">
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#08525f" text-anchor="middle">
+            <rect x="10" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="85" y="38">1 · Relax</text><text x="85" y="56">body soft</text>
+            <text x="172" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="184" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="259" y="38">2 · Arms</text><text x="259" y="56">out wide</text>
+            <text x="346" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="358" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="433" y="38">3 · Legs</text><text x="433" y="56">out wide</text>
+            <text x="520" y="48" font-size="18" fill="#0b6b7a">→</text>
+          </g>
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+            <rect x="532" y="16" width="178" height="52" rx="12" fill="#e4572e"/><text x="621" y="38">4 · Starfish ⭐</text><text x="621" y="56">front, then back</text>
+          </g>
+          <text x="360" y="96" text-anchor="middle" font-size="13" fill="#5a6b72">Front starfish first, then back starfish — always with instructor support.</text>
+        </svg>
+        <ul class="substeps">
+          <li><b>Front starfish:</b> instructor supports your body and head → relax arms and legs → spread out wide.</li>
+          <li><b>Back starfish:</b> same again on your back — relax, arms and legs out, instructor supporting your body and head.</li>
+          <li><b>Ball float:</b> with instructor support, gently curl into a ball shape. Do not hold your breath for a challenge.</li>
+        </ul>
+        <h4 style="margin:16px 0 8px">🔍 Break it down — kicking, step by step</h4>
+        <svg viewBox="0 0 720 100" role="img" aria-label="Kicking: hold the edge, small kicks, relaxed legs">
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#08525f" text-anchor="middle">
+            <rect x="10" y="14" width="180" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="100" y="36">1 · Hold the</text><text x="100" y="54">pool edge</text>
+            <text x="202" y="46" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="214" y="14" width="180" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="304" y="36">2 · Small,</text><text x="304" y="54">gentle kicks</text>
+            <text x="406" y="46" font-size="18" fill="#0b6b7a">→</text>
+          </g>
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+            <rect x="418" y="14" width="292" height="52" rx="12" fill="#e4572e"/><text x="564" y="36">3 · Relaxed legs —</text><text x="564" y="54">repeat until comfortable</text>
+          </g>
+          <text x="360" y="92" text-anchor="middle" font-size="13" fill="#5a6b72">Hold the edge or use instructor-approved support. Repeat until the instructor agrees to move on.</text>
+        </svg>
+      </div>
 
-  <article class="lesson">
-    <div class="lesson-head"><div class="emoji">🐬</div><div><span class="tag">LESSON 4</span><h2>First Swimming Strokes</h2><p>Start basic arm and leg coordination with a qualified instructor.</p></div></div>
-    <ul><li>Practise simple arm movements with guidance.</li><li>Combine arm movements and gentle kicking only when ready.</li><li>Celebrate effort and continue learning with an instructor.</li></ul>
-    <div class="safety">This app is a practice companion, not a substitute for lessons from a qualified swimming instructor.</div>
-    <div class="actions"><button class="primary complete-button" data-lesson="4">Mark Lesson 4 Complete</button></div>
-  </article>
-</section>
+      <div class="yt-box">
+        <h4>🎥 Watch and learn — Lesson 3 (floating)</h4>
+        <p><a href="https://www.youtube.com/watch?v=hHx2sdhmbOU" target="_blank" rel="noopener">How to Float in Water for Beginners | Swim on Your Back in 4 Steps</a> — Jonny Rocket (Rocket Swimming), YouTube (free to watch).</p>
+        <p class="watch-for"><strong>What to watch for:</strong> how to float on your back without sinking — keep air in your chest, stay balanced, and relax. The student is a complete beginner, so watch how slowly the teacher builds it up, step by step.</p>
+      </div>
 
-<section id="shopSection" class="hidden">
-  <div class="hero"><h2>Swimming Shop 🛍️</h2><p>Example accessories for your swimming journey. Prices are illustrative and shown in USD. This is a demo shop only, with no real payments or orders.</p></div>
-  <div class="product-grid" id="productGrid"></div>
-  <div class="panel" style="margin-top:15px">
-    <h3>Your cart</h3>
-    <div id="cartItems"></div>
-    <p class="price">Subtotal: $<span id="cartTotal">0</span></p>
-    <p class="small">Demo only. No payment or checkout is available.</p>
-    <button class="secondary" id="clearCart">Clear cart</button>
-  </div>
-</section>
+      <div class="yt-box">
+        <h4>🎥 Watch and learn — Lesson 3 (kicking)</h4>
+        <p><a href="https://www.youtube.com/watch?v=tvp0xh1HUFs" target="_blank" rel="noopener">Swimming For Beginners - Adult Learn To Swim - Part 2 | Freestyle &amp; Backstroke Drills</a> — Swim Australia, YouTube (free to watch).</p>
+        <p class="watch-for"><strong>What to watch for:</strong> the warm-up kicking from 2:04, kicking with a kickboard from 2:40, and streamline kicking from 6:27. Notice the small, relaxed kicks — and that everything is filmed in safe, shallow water with a lifeguard on duty.</p>
+        <p class="muted">Watch together first, then try gentle kicks holding the pool edge — closely supervised, never alone.</p>
+      </div>
+      <div class="lesson-foot">
+        <button class="btn" type="button" data-complete="3">Mark Lesson 3 complete</button>
+        <span class="done-msg" id="done-3">⭐ Lesson 3 complete — well done!</span>
+        <a class="back" href="#lesson-4">Next: Lesson 4 First Swimming Strokes →</a>
+      </div>
+    </div>
+  </details>
 
-<section id="progressSection" class="hidden">
-  <div class="hero"><h2>Your Swimming Journey ⭐</h2><p>Progress is personal. You can repeat lessons as often as you need.</p></div>
-  <div class="panel">
-    <h3>Lessons completed</h3>
-    <p><strong id="progressText">0 of 4 lessons</strong></p>
-    <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
-    <p class="small" id="progressMessage">Every small step counts. Start when you are ready!</p>
+  <!-- LESSON 4 -->
+  <details class="lesson" id="lesson-4">
+    <summary>
+      <div class="big">🐬</div>
+      <div class="t">
+        <div class="eyebrow">Lesson 4</div>
+        <h2>First Swimming Strokes</h2>
+        <p>Start basic arm and leg coordination with a qualified instructor.</p>
+      </div>
+      <span class="done-badge">✓ Done</span>
+      <span class="chev">⌄</span>
+    </summary>
+    <div class="lesson-body">
+      <h3 style="margin:18px 0 4px">👀 Watch, then try — the movement steps</h3>
+      <div class="steps">
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/9044049/pexels-photo-9044049.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A joyful child swimming underwater in a sunlit pool" loading="lazy">
+          <div class="step-body"><span class="step-num">1</span><h4>Simple arm movements</h4><p>Practise simple arm movements with guidance — one arm at a time, nice and slow.</p><span class="try">✋ Try this: simple arm movements</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/34193272/pexels-photo-34193272/free-photo-of-child-swimming-joyfully-in-a-sparkling-pool.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child swimming underwater in sparkling blue water" loading="lazy">
+          <div class="step-body"><span class="step-num">2</span><h4>Arms + gentle kicking</h4><p>Put arms and gentle kicking together — only when ready. No rush.</p><span class="try">✋ Try this: combine arms and gentle kicking</span></div>
+        </div>
+        <div class="step-card">
+          <img src="https://images.pexels.com/photos/346776/pexels-photo-346776.jpeg?auto=compress&amp;w=1260&amp;h=750&amp;dpr=1" alt="A young child playing and swimming in a pool" loading="lazy">
+          <div class="step-body"><span class="step-num">3</span><h4>First strokes — celebrate!</h4><p>Your first strokes! Celebrate the effort, and keep learning with an instructor.</p><span class="try">⭐ Try this: celebrate, then keep practising</span></div>
+        </div>
+      </div>
+      <div class="coach-box"><strong>👩‍🏫 Coach tip</strong><br>Arms first, then add the kick — and only when the learner says they are ready.</div>
+
+      <div class="diagram">
+        <h4>🔍 Break it down — your first strokes</h4>
+        <svg viewBox="0 0 720 110" role="img" aria-label="First strokes: arms, kick together, breathe, first strokes">
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#08525f" text-anchor="middle">
+            <rect x="10" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="85" y="38">1 · Simple</text><text x="85" y="56">arm movements</text>
+            <text x="172" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="184" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="259" y="38">2 · Add gentle</text><text x="259" y="56">kicking</text>
+            <text x="346" y="48" font-size="18" fill="#0b6b7a">→</text>
+            <rect x="358" y="16" width="150" height="52" rx="12" fill="#e6f4f6" stroke="#0b6b7a"/><text x="433" y="38">3 · Keep</text><text x="433" y="56">breathing calm</text>
+            <text x="520" y="48" font-size="18" fill="#0b6b7a">→</text>
+          </g>
+          <g font-family="inherit" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">
+            <rect x="532" y="16" width="178" height="52" rx="12" fill="#e4572e"/><text x="621" y="38">4 · First strokes</text><text x="621" y="56">🎉 celebrate!</text>
+          </g>
+          <text x="360" y="96" text-anchor="middle" font-size="13" fill="#5a6b72">Arms, then kick, then breathe — only combine them when ready, with a qualified instructor.</text>
+        </svg>
+        <ul class="substeps">
+          <li><b>Step 1 — Arms:</b> practise simple arm movements with guidance, one at a time, nice and slow.</li>
+          <li><b>Step 2 — Arms + kick:</b> combine arm movements and gentle kicking only when ready.</li>
+          <li><b>Step 3 — Breathe:</b> keep the calm breathing from Lesson 2 going while you move.</li>
+          <li><b>Step 4 — Celebrate:</b> celebrate the effort, and continue learning with an instructor.</li>
+        </ul>
+      </div>
+
+      <div class="yt-box">
+        <h4>🎥 Watch and learn — Lesson 4</h4>
+        <p><a href="https://www.youtube.com/watch?v=lqxbSpJXXuE" target="_blank" rel="noopener">Start SWIMMING TODAY ! BEGINNER’s FREESTYLE (Crawl) Tutorial</a> — Swimming and Sea (@swimmingandsea), YouTube (free to watch).</p>
+        <p class="watch-for"><strong>What to watch for:</strong> it follows the same order as this page — getting comfortable in the water (0:33), body position (1:19), flutter kick (1:55), arm movements (2:28), breathing (3:28), then putting it all together (4:19). Watch one part at a time, and only practise the part you are up to.</p>
+        <p class="muted">Watch together first, then practise simple arm movements with guidance — never alone.</p>
+      </div>
+      <div class="lesson-foot">
+        <button class="btn" type="button" data-complete="4">Mark Lesson 4 complete</button>
+        <span class="done-msg" id="done-4">⭐ Lesson 4 complete — well done!</span>
+        <a class="back" href="#journey">See your journey ↓</a>
+      </div>
+    </div>
+  </details>
   </div>
-  <div class="panel">
-    <h3>🏅 Your badges</h3>
-    <div class="badges" id="badges"></div>
-  </div>
-  <div class="panel">
-    <h3>Activity checklist</h3>
-    <p class="small">Your Lesson 1 activities are saved on this device.</p>
-    <p id="activitySummary">0 of 12 activities tried</p>
-    <div class="progress-bg"><div class="progress-fill" id="activityFill"></div></div>
-  </div>
-  <div class="panel">
-    <h3>Reset progress</h3>
-    <p class="small">This clears completed lessons and activity ticks on this device. It cannot be undone.</p>
-    <button class="danger" id="resetProgress">Reset all progress</button>
-  </div>
-</section>
-</main>
-<footer>SwimSteps · Learn safely, grow confidently 💙<br>Progress is saved locally on this device and is not synced across devices.</footer>
+
+  <p class="muted" style="text-align:center">This app is a practice companion, not a substitute for lessons from a qualified swimming instructor.</p>
+
+  <!-- SHOP — just a link to the real shop -->
+  <section class="shop" id="shop">
+    <h2>Swimming Shop 🛍️</h2>
+    <p>Ready for your own swim cap? Custom swim caps from US$14.99.</p>
+    <a class="shop-btn" href="https://kensswir.github.io/swimmingsteps/shop/">Visit M&amp;L Swim Tailor →</a>
+    <p class="fine">M&amp;L Swim Tailor — <a href="https://kensswir.github.io/swimmingsteps/shop/">https://kensswir.github.io/swimmingsteps/shop/</a><br>Contact: mlswimtailor@proton.me</p>
+  </section>
+
+  <!-- JOURNEY / PROGRESS -->
+  <section class="journey" id="journey">
+    <h2>Your Swimming Journey ⭐</h2>
+    <p>Progress is personal. You can repeat lessons as often as you need.</p>
+    <p class="counts"><span id="lessons-count">0 of 4 lessons</span> completed</p>
+    <div class="bar" aria-hidden="true"><div id="lessons-bar"></div></div>
+    <p id="journey-message">Every small step counts. Start when you are ready!</p>
+    <p>Your Lesson 1 activities are saved on this device — <strong><span id="activities-count">0 of 12 activities tried</span></strong></p>
+    <h3 style="margin:18px 0 4px">Reset progress</h3>
+    <p class="muted">This clears completed lessons and activity ticks on this device. It cannot be undone.</p>
+    <button class="btn ghost" type="button" id="reset-btn">Reset my progress</button>
+  </section>
+
+  <p class="credit">Photos on this page are free to use from Pexels: Tima Miroshnichenko (instructor with child), Kindel Media (boy floating; child underwater), Porapak Apichodilok (young swimmer with goggles), Volker Thimm (child swimming underwater). See each photo on <a href="https://www.pexels.com/">pexels.com</a>.</p>
+
+  <footer>
+    <p>SwimSteps — learn to swim, one little step at a time. 💧</p>
+    <p>Always practise with a trusted adult or qualified instructor, and stay within arm’s reach.</p>
+  </footer>
+
 </div>
-
 <script>
 (function(){
-"use strict";
-const LESSON_COUNT=4;
-const products=[
-{id:"goggles",name:"Swimming Goggles",price:15,emoji:"🥽",desc:"Help protect eyes and improve underwater vision."},
-{id:"cap",name:"Swim Cap",price:10,emoji:"🧢",desc:"A comfortable cap for swimming lessons."},
-{id:"kickboard",name:"Kickboard",price:18,emoji:"🟦",desc:"Use only as directed by a swimming instructor."},
-{id:"pullbuoy",name:"Pull Buoy",price:12,emoji:"🛟",desc:"A training aid, not a life-saving device."},
-{id:"bag",name:"Swim Bag",price:22,emoji:"🎒",desc:"Keep swimming accessories together."}
-];
-const safeRead=(key,fallback)=>{try{const x=localStorage.getItem(key);return x===null?fallback:JSON.parse(x)}catch(e){return fallback}};
-const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}};
-let completed=safeRead("swimsteps-completed-v2",[]);
-let cart=safeRead("swimsteps-cart-v2",{});
-let activities=safeRead("swimsteps-activities-v1",[]);
-if(!Array.isArray(completed))completed=[];
-if(!Array.isArray(activities))activities=[];
-if(!cart||typeof cart!=="object"||Array.isArray(cart))cart={};
-completed=completed.map(Number).filter(n=>Number.isInteger(n)&&n>=1&&n<=LESSON_COUNT);
-activities=activities.map(String);
-const $=id=>document.getElementById(id);
-const save=()=>{safeWrite("swimsteps-completed-v2",completed);safeWrite("swimsteps-cart-v2",cart);safeWrite("swimsteps-activities-v1",activities)};
-function switchTab(tab){
-document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
-$("learnSection").classList.toggle("hidden",tab!=="learn");
-$("shopSection").classList.toggle("hidden",tab!=="shop");
-$("progressSection").classList.toggle("hidden",tab!=="progress");
-window.scrollTo({top:0,behavior:"smooth"});
-}
-document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
-function toggleLesson(n){
-if(completed.includes(n))completed=completed.filter(x=>x!==n);
-else completed.push(n);
-completed.sort((a,b)=>a-b);
-save();render();
-}
-$("completeLesson1").addEventListener("click",()=>{toggleLesson(1);$("lesson1Status").textContent=completed.includes(1)?"Lesson 1 marked complete. Great job! You can keep practising anytime.":"Lesson 1 completion has been unchecked.";});
-$("resetLesson1").addEventListener("click",()=>{
-if(!confirm("Clear the Lesson 1 activity ticks?"))return;
-activities=activities.filter(a=>!a.startsWith("1-"));save();renderActivities();
-});
-document.querySelectorAll(".complete-button").forEach(b=>b.addEventListener("click",()=>{
-const n=Number(b.dataset.lesson);toggleLesson(n);
-b.textContent=completed.includes(n)?"✓ Lesson "+n+" Completed":"Mark Lesson "+n+" Complete";
-}));
-function renderActivities(){
-document.querySelectorAll("[data-activity]").forEach(input=>{
-input.checked=activities.includes(input.dataset.activity);
-input.onchange=()=>{
-if(input.checked){if(!activities.includes(input.dataset.activity))activities.push(input.dataset.activity)}
-else activities=activities.filter(a=>a!==input.dataset.activity);
-save();render();
-};
-});
-const count=activities.filter(a=>/^1-\d+$/.test(a)).length;
-$("activitySummary").textContent=count+" of 12 activities tried";
-$("activityFill").style.width=(count/12*100)+"%";
-}
-function renderShop(){
-$("productGrid").innerHTML=products.map(p=>`
-<div class="product">
-<div class="emoji">${p.emoji}</div><h3>${p.name}</h3>
-<p class="small">${p.desc}</p><p class="price">$${p.price}</p>
-<button class="primary" data-add="${p.id}">Add to cart</button>
-</div>`).join("");
-document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>{
-const id=b.dataset.add;cart[id]=(Number(cart[id])||0)+1;save();renderCart();
-}));
-}
-function renderCart(){
-const entries=products.filter(p=>(Number(cart[p.id])||0)>0);
-$("cartCount").textContent=entries.length?"("+entries.reduce((n,p)=>n+Number(cart[p.id]),0)+")":"";
-$("cartItems").innerHTML=entries.length?entries.map(p=>`
-<div style="display:flex;justify-content:space-between;gap:10px;margin:9px 0">
-<span>${p.emoji} ${p.name} × ${Number(cart[p.id])}</span>
-<strong>$${p.price*Number(cart[p.id])}</strong>
-<button class="secondary" data-remove="${p.id}">Remove</button>
-</div>`).join(""):"<p class='small'>Your cart is empty.</p>";
-$("cartTotal").textContent=products.reduce((sum,p)=>sum+p.price*(Number(cart[p.id])||0),0);
-document.querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",()=>{
-delete cart[b.dataset.remove];save();renderCart();
-}));
-}
-function render(){
-$("headerCompleted").textContent=completed.length+"/"+LESSON_COUNT;
-$("headerBadges").textContent=(completed.length>0?1:0)+(completed.length>=2?1:0)+(completed.length>=3?1:0)+(completed.length===4?1:0);
-$("progressText").textContent=completed.length+" of "+LESSON_COUNT+" lessons";
-$("progressFill").style.width=(completed.length/LESSON_COUNT*100)+"%";
-$("progressMessage").textContent=completed.length===4?"Amazing! You have completed all four app lessons. Keep practising safely with your instructor.":completed.length===0?"Every small step counts. Start when you are ready!":"Great effort! Continue when you feel ready. There is no rush.";
-const badgeList=[
-{emoji:"🌱",name:"First Step",desc:"Complete your first lesson",earned:completed.length>=1},
-{emoji:"🐠",name:"Keep Going",desc:"Complete two lessons",earned:completed.length>=2},
-{emoji:"⭐",name:"Super Learner",desc:"Complete three lessons",earned:completed.length>=3},
-{emoji:"🏆",name:"Lesson Champion",desc:"Complete all four lessons",earned:completed.length===4}
-];
-$("badges").innerHTML=badgeList.map(b=>`<div class="badge-card ${b.earned?"":"locked"}"><div class="emoji">${b.emoji}</div><strong>${b.name}</strong><div class="small">${b.desc}</div><div class="small">${b.earned?"Earned!":"Keep practising"}</div></div>`).join("");
-$("completeLesson1").textContent=completed.includes(1)?"✓ Lesson 1 Completed":"✓ Mark Lesson 1 Complete";
-document.querySelectorAll(".complete-button").forEach(b=>{
-const n=Number(b.dataset.lesson);b.textContent=completed.includes(n)?"✓ Lesson "+n+" Completed":"Mark Lesson "+n+" Complete";
-});
-renderActivities();renderCart();
-}
-$("clearCart").addEventListener("click",()=>{cart={};save();renderCart()});
-$("resetProgress").addEventListener("click",()=>{
-if(!confirm("Reset all completed lessons and activity ticks?"))return;
-completed=[];activities=[];save();render();
-$("lesson1Status").textContent="";
-});
-renderShop();render();
-if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(()=>{}))}
+  var KEY = 'swimsteps-progress-v1';
+  var state = { lessons: {}, activities: {} };
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved) state = JSON.parse(saved) || state;
+  } catch(e) {}
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+  }
+  function countActs(ids){
+    return ids.filter(function(k){ return !!state.activities[k]; }).length;
+  }
+  function update(){
+    var doneLessons = [1,2,3,4].filter(function(n){ return !!state.lessons[n]; });
+    var countEl = document.getElementById('lessons-count');
+    var barEl = document.getElementById('lessons-bar');
+    var msgEl = document.getElementById('journey-message');
+    if (countEl) countEl.textContent = doneLessons.length + ' of 4 lessons';
+    if (barEl) barEl.style.width = (doneLessons.length / 4 * 100) + '%';
+    if (msgEl) {
+      msgEl.textContent = doneLessons.length === 0 ? 'Every small step counts. Start when you are ready!'
+        : doneLessons.length === 4 ? 'All 4 lessons complete — amazing! Keep practising, little swimmer! ⭐'
+        : 'Lovely progress — ' + doneLessons.length + ' of 4 lessons done. Keep going, one step at a time!';
+    }
+    var doneActs = Object.keys(state.activities).filter(function(k){ return !!state.activities[k]; }).length;
+    var l1 = document.getElementById('l1-count');
+    var acts = document.getElementById('activities-count');
+    if (l1) l1.textContent = doneActs + ' of 12 activities tried';
+    if (acts) acts.textContent = doneActs + ' of 12 activities tried';
+    var pa = document.getElementById('part-a-count');
+    var pb = document.getElementById('part-b-count');
+    if (pa) pa.textContent = countActs(['1-1','1-2','1-3','1-4','1-5','1-6']) + ' of 6 tried';
+    if (pb) pb.textContent = countActs(['1-7','1-8','1-9','1-10','1-11','1-12']) + ' of 6 tried';
+    [1,2,3,4].forEach(function(n){
+      var btn = document.querySelector('[data-complete="' + n + '"]');
+      var msg = document.getElementById('done-' + n);
+      var sec = document.getElementById('lesson-' + n);
+      if (btn) btn.textContent = state.lessons[n] ? 'Lesson ' + n + ' complete ✓ — tap to undo' : 'Mark Lesson ' + n + ' complete';
+      if (msg) msg.classList.toggle('show', !!state.lessons[n]);
+      if (sec) sec.classList.toggle('done', !!state.lessons[n]);
+    });
+    document.querySelectorAll('input[data-activity]').forEach(function(box){
+      box.checked = !!state.activities[box.getAttribute('data-activity')];
+      var li = box.closest('li');
+      if (li) li.classList.toggle('done', box.checked);
+    });
+  }
+  document.querySelectorAll('[data-complete]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var n = btn.getAttribute('data-complete');
+      state.lessons[n] = !state.lessons[n];
+      save(); update();
+    });
+  });
+  document.querySelectorAll('input[data-activity]').forEach(function(box){
+    box.addEventListener('change', function(){
+      state.activities[box.getAttribute('data-activity')] = box.checked;
+      save(); update();
+    });
+  });
+  var reset = document.getElementById('reset-btn');
+  if (reset) reset.addEventListener('click', function(){
+    if (confirm('Reset your SwimSteps progress? This clears completed lessons and activity ticks on this device.')) {
+      state = { lessons: {}, activities: {} };
+      save(); update();
+    }
+  });
+  update();
 })();
 </script>
 </body>
